@@ -12,6 +12,10 @@ on:
       - '**.md'
   workflow_dispatch:
 
+env:
+  KEYBOARD: moonlander
+  KEYMAP: ilabutin
+
 jobs:
   build-firmware:
     runs-on: ubuntu-latest
@@ -33,8 +37,22 @@ jobs:
           fetch-depth: 1
           persist-credentials: false
           submodules: true
-          path: 'zsa_qmk/keyboards/moonlander/keymaps/ilabutin'
+          path: 'zsa_qmk/keyboards/${{ KEYBOARD }}/keymaps/${{ KEYMAP }}'
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: cat zsa_qmk/keyboards/moonlander/keymaps/ilabutin/rules.mk
+    - name: Build
+      id: build
+      run: |
+        qmk compile -kb ${{ KEYBOARD }} -km ${{ KEYMAP }}
+
+        TARGET="$(echo "${{ KEYBOARD }}" | sed 's#/#_#g')_${{ KEYMAP }}"
+        echo ::set-output name=artifact-name::${TARGET}
+        echo "Artifact-name: ${{ steps.build.outputs.artifact-name }}"
+
+    - name: Archive artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: "${{ steps.build.outputs.artifact-name }}"
+        path: |
+          *.hex
+          *.bin
+      continue-on-error: true
