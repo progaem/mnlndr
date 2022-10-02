@@ -36,20 +36,20 @@ jobs:
           submodules: true
           path: 'zsa_qmk/keyboards/$KEYBOARD/keymaps/$KEYMAP'
 
-    - name: Build
-      id: build
-      run: |
-        qmk compile -kb $KEYBOARD -km $KEYMAP
-
-        TARGET="$(echo "$KEYBOARD" | sed 's#/#_#g')_$KEYMAP"
-        echo ::set-output name=artifact-name::${TARGET}
-        echo "Artifact-name: ${{ steps.build.outputs.artifact-name }}"
-
-    - name: Archive artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: "${{ steps.build.outputs.artifact-name }}"
-        path: |
-          *.hex
-          *.bin
-      continue-on-error: true
+      - name: Build
+        id: build
+        run: |
+          qmk compile -kb $KEYBOARD -km $KEYMAP
+      
+          TARGET="$(echo "$KEYBOARD" | sed 's#/#_#g')_$KEYMAP"
+          echo ::set-output name=artifact-name::${TARGET}
+          echo "Artifact-name: ${{ steps.build.outputs.artifact-name }}"
+      
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: "${{ steps.build.outputs.artifact-name }}"
+          path: |
+            *.hex
+            *.bin
+        continue-on-error: true
