@@ -26,7 +26,6 @@ jobs:
           fetch-depth: 1
           persist-credentials: false
           submodules: true
-          path: 'zsa_qmk'
 
       - name: Checkout keymap
         uses: actions/checkout@v3
@@ -34,12 +33,13 @@ jobs:
           fetch-depth: 1
           persist-credentials: false
           submodules: true
-          path: "zsa_qmk/keyboards/${{ env.KEYBOARD }}/keymaps/${{ env.KEYMAP }}"
+          path: "keyboards/${{ env.KEYBOARD }}/keymaps/${{ env.KEYMAP }}"
 
       - name: Build
         id: build
         run: |
-          qmk compile -kb ${{ env.KEYBOARD }} -km ${{ env.KEYMAP }}
+          
+          make ${{ env.KEYBOARD }}:${{ env.KEYMAP }}
       
           TARGET="$(echo "${{ env.KEYBOARD }}" | sed 's#/#_#g')_${{ env.KEYMAP }}"
           echo ::set-output name=artifact-name::${TARGET}
@@ -50,6 +50,6 @@ jobs:
         with:
           name: "${{ steps.build.outputs.artifact-name }}"
           path: |
-            zsa_qmk/*.hex
-            zsa_qmk/*.bin
+            *.hex
+            *.bin
         continue-on-error: true
