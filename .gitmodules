@@ -3,7 +3,7 @@
 	url = https://github.com/klavarog/lang_shift
 [submodule "arbitrary_keycode"]
 	path = arbitrary_keycode
-	url = https://github.com/klavarog/arbitrary_keycode
+	url = https://github.com/ilabutin/arbitrary_keycode
 [submodule "combo"]
 	path = combo
 	url = https://github.com/klavarog/combo
