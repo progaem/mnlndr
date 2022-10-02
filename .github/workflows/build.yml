@@ -36,7 +36,7 @@ jobs:
           path: 'zsa_qmk'
           
       - name: Link keymap folder to QMK
-        run: ln -s keymap zsa_qmk/keyboards/moonlander/keymaps/ilabutin
+        run: ln -s ${{ github.workspace }}/keymap ${{ github.workspace }}/zsa_qmk/keyboards/moonlander/keymaps/ilabutin
         
       # Runs a single command using the runners shell
       - name: Run a one-line script
