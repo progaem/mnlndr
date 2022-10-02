@@ -18,14 +18,6 @@ jobs:
     container: qmkfm/qmk_cli
 
     steps:
-      - name: Checkout keymap
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 1
-          persist-credentials: false
-          submodules: true
-          path: 'keymap'
-
       - name: Checkout ZSA QMK
         uses: actions/checkout@v3
         with:
@@ -34,10 +26,15 @@ jobs:
           persist-credentials: false
           submodules: true
           path: 'zsa_qmk'
-          
-      - name: Link keymap folder to QMK
-        run: ln -s ${{ github.workspace }}/keymap ${{ github.workspace }}/zsa_qmk/keyboards/moonlander/keymaps/ilabutin
-        
+
+      - name: Checkout keymap
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+          submodules: true
+          path: 'zsa_qmk/keyboards/moonlander/keymaps/ilabutin'
+
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: cat zsa_qmk/keyboards/moonlander/keymaps/ilabutin/rules.mk
