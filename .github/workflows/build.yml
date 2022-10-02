@@ -34,14 +34,14 @@ jobs:
           fetch-depth: 1
           persist-credentials: false
           submodules: true
-          path: "zsa_qmk/keyboards/$KEYBOARD/keymaps/$KEYMAP"
+          path: "zsa_qmk/keyboards/${{ env.KEYBOARD }}/keymaps/${{ env.KEYMAP }}"
 
       - name: Build
         id: build
         run: |
-          qmk compile -kb "$KEYBOARD" -km "$KEYMAP"
+          qmk compile -kb ${{ env.KEYBOARD }} -km ${{ env.KEYMAP }}
       
-          TARGET="$(echo "$KEYBOARD" | sed 's#/#_#g')_$KEYMAP"
+          TARGET="$(echo "${{ env.KEYBOARD }}" | sed 's#/#_#g')_${{ env.KEYMAP }}"
           echo ::set-output name=artifact-name::${TARGET}
           echo "Artifact-name: ${{ steps.build.outputs.artifact-name }}"
       
