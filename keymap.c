@@ -221,7 +221,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              EN_N,    EN_M,    EN_COMM, EN_DOT,  EN_SLSH, XXXXXXX, 
                       TT_RED,  XXXXXXX, XXXXXXX, XXXXXXX, TT_SPCL, 
                       CMB_ALT, /* RIGHT RED THUMB KEY */ 
-                      CMB_LAN, KC_ENT,  CMB_SPC /* RIGHT THUMB KEYS */ 
+                      CMB_LAN, CMB_ENT, CMB_SPC /* RIGHT THUMB KEYS */ 
   ),
 
   // English with Shift
@@ -242,7 +242,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              EN_S_N,  EN_S_M,  EN_LT,   EN_GT,   EN_QUES, XXXXXXX, 
                       TT_RED,  XXXXXXX, XXXXXXX, XXXXXXX, TT_SPCL, 
                       CMB_ALT, /* RIGHT RED THUMB KEY */ 
-                      CMB_LAN, KC_ENT,  CMB_SPC /* RIGHT THUMB KEYS */ 
+                      CMB_LAN, CMB_ENT, CMB_SPC /* RIGHT THUMB KEYS */ 
   ),
   
   // Russian without Shift
@@ -263,7 +263,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              RU_T,    CMS_SF,  RU_B,    RU_JU,   RU_DOT, XXXXXXX, 
                       TT_RED,  XXXXXXX, XXXXXXX, XXXXXXX, TT_SPCL, 
                       CMB_ALT, /* RIGHT RED THUMB KEY */ 
-                      CMB_LAN, KC_ENT,  CMB_SPC /* RIGHT THUMB KEYS */ 
+                      CMB_LAN, CMB_ENT, CMB_SPC /* RIGHT THUMB KEYS */ 
   ),
 
   [L_RU_S] = MY_layout( 
@@ -283,7 +283,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              RU_S_T,  CMS_SSF, RU_S_B,  RU_S_JU, RU_COMM, XXXXXXX, 
                       TT_RED,  XXXXXXX, XXXXXXX, XXXXXXX, TT_SPCL, 
                       CMB_ALT, /* RIGHT RED THUMB KEY */ 
-                      CMB_LAN, KC_ENT,  CMB_SPC /* RIGHT THUMB KEYS */ 
+                      CMB_LAN, CMB_ENT, CMB_SPC /* RIGHT THUMB KEYS */ 
   ),
 
   //---------------------------------------------------------------------------
@@ -400,11 +400,11 @@ const ComboWithKeycode combos[] PROGMEM = {
   CHORD(KC_SPC,  /* <- */ CMB_SPC),
   CHORD(ALT_EN,  /* <- */ CMB_ALT),
   CHORD(AG_SDOT, /* <- */ CMB_DOT, CMB_SPC),
-  CHORD(LA_SYNC, /* <- */ CMB_LAN, CMB_DOT),
+  CHORD(LA_SYNC, /* <- */ CMB_LAN, CMB_ENT),
   CHORD(CTAL_EN, /* <- */ CMB_SPC, CMB_ALT),
   CHORD(SHAL_EN, /* <- */ CMB_DOT, CMB_ALT),
   CHORD(WIN_EN,  /* <- */ CMB_SPC, CMB_DOT, CMB_ALT),
-  CHORD(WN_L,  /* <- */ CMB_LAN, CMB_DOT, CMB_ALT),
+  CHORD(WN_L,  /* <- */ CMB_LAN, CMB_ENT, CMB_ALT),
 
   // -------------------------------------------------------------------------
   // Shifted index keys
