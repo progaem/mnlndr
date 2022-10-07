@@ -209,7 +209,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,  EN_Q,    EN_W,    EN_E,    EN_R,    EN_T,    XXXXXXX, 
     XXXXXXX, EN_A,    EN_S,    EN_D,    EN_F,    EN_G,    XXXXXXX, 
     XXXXXXX, EN_Z,    EN_X,    EN_C,    EN_V,    EN_B, 
-    XXXXXXX, XXXXXXX, XXXXXXX, CMB_LYG, CMB_LYV, 
+    XXXXXXX, XXXXXXX, XXXXXXX, CMB_LYV, CMB_LYG, 
     CMB_CTL, /* LEFT RED THUMB KEY */ 
     CMB_SFT, CMB_BSP, CMB_ENT, /* LEFT THUMB KEYS */ 
     
@@ -230,7 +230,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,  EN_S_Q,  EN_S_W,  EN_S_E,  EN_S_R,  EN_S_T,  XXXXXXX, 
     XXXXXXX, EN_S_A,  EN_S_S,  EN_S_D,  EN_S_F,  EN_S_G,  XXXXXXX, 
     XXXXXXX, EN_S_Z,  EN_S_X,  EN_S_C,  EN_S_V,  EN_S_B, 
-    XXXXXXX, XXXXXXX, XXXXXXX, CMB_LYG, CMB_LYV, 
+    XXXXXXX, XXXXXXX, XXXXXXX, CMB_LYV, CMB_LYG, 
     CMB_CTL, /* LEFT RED THUMB KEY */ 
     CMB_SFT, CMB_BSP, CMB_ENT, /* LEFT THUMB KEYS */ 
     
@@ -251,7 +251,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,  RU_J,    RU_TS,   RU_U,    RU_K,    RU_JE,   XXXXXXX, 
     XXXXXXX, RU_F,    RU_Y,    RU_V,    RU_A,    RU_P,    XXXXXXX, 
     XXXXXXX, RU_JA,   RU_CH,   RU_S,    RU_M,    RU_I, 
-    XXXXXXX, XXXXXXX, XXXXXXX, CMB_LYG, CMB_LYV, 
+    XXXXXXX, XXXXXXX, XXXXXXX, CMB_LYV, CMB_LYG, 
     CMB_CTL, /* LEFT RED THUMB KEY */ 
     CMB_SFT, CMB_BSP, CMB_ENT, /* LEFT THUMB KEYS */ 
     
@@ -271,7 +271,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,  RU_S_J,  RU_S_TS, RU_S_U,  RU_S_K,  RU_S_JE, XXXXXXX, 
     XXXXXXX, RU_S_F,  RU_S_Y,  RU_S_V,  RU_S_A,  RU_S_P,  XXXXXXX, 
     XXXXXXX, RU_S_JA, RU_S_CH, RU_S_S,  RU_S_M,  RU_S_I, 
-    XXXXXXX, XXXXXXX, XXXXXXX, CMB_LYG, CMB_LYV, 
+    XXXXXXX, XXXXXXX, XXXXXXX, CMB_LYV, CMB_LYG, 
     CMB_CTL, /* LEFT RED THUMB KEY */ 
     CMB_SFT, CMB_BSP, CMB_ENT, /* LEFT THUMB KEYS */ 
     
@@ -297,10 +297,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, // LEFT THUMB KEYS
 
     // RIGHT HALF
-    _______, _______, _______, KC_HOME, KC_PGUP, _______, _______,
-    _______, _______, _______,  KC_END, KC_PGDN, _______, _______,
-    _______, _______, _______,   KC_UP, _______, _______, _______,
-             _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
+    _______, _______, KC_HOME, _______, KC_END,  _______, _______,
+    _______, _______, KC_PGUP, KC_UP,   KC_PGDN, _______, _______,
+    _______, _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
+             _______, _______, _______, _______, _______, _______,
                       _______, _______, _______, _______, _______,
                       _______, // RIGHT RED THUMB KEY
                       _______, _______, _______ // RIGHT THUMB KEYS
