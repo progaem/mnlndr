@@ -221,7 +221,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                       TT_RED,  XXXXXXX, XXXXXXX, XXXXXXX, TT_SPCL, 
                       CMB_ALT, /* RIGHT RED THUMB KEY */ 
                       CMB_LAN, CMB_DOT, CMB_SPC /* RIGHT THUMB KEYS */ 
-  )
+  ),
 
   // English with Shift
   [L_EN_S] = MY_layout( 
@@ -242,7 +242,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                       TT_RED,  XXXXXXX, XXXXXXX, XXXXXXX, TT_SPCL, 
                       CMB_ALT, /* RIGHT RED THUMB KEY */ 
                       CMB_LAN, CMB_DOT, CMB_SPC /* RIGHT THUMB KEYS */ 
-  )
+  ),
   
   // Russian without Shift
   [L_RU] = MY_layout( 
@@ -263,7 +263,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                       TT_RED,  XXXXXXX, XXXXXXX, XXXXXXX, TT_SPCL, 
                       CMB_ALT, /* RIGHT RED THUMB KEY */ 
                       CMB_LAN, CMB_DOT, CMB_SPC /* RIGHT THUMB KEYS */ 
-  )
+  ),
 
   [L_RU_S] = MY_layout( 
     /* LEFT HALF */ 
@@ -283,7 +283,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                       TT_RED,  XXXXXXX, XXXXXXX, XXXXXXX, TT_SPCL, 
                       CMB_ALT, /* RIGHT RED THUMB KEY */ 
                       CMB_LAN, CMB_DOT, CMB_SPC /* RIGHT THUMB KEYS */ 
-  )
+  ),
 
   //---------------------------------------------------------------------------
   [L_RED] = MY_layout(
