@@ -163,6 +163,8 @@ LAYOUT_moonlander( \
 #define CMB_LCR CMB_038
 #define CMB_RCR CMB_039
 
+#define CMB_DEL CMB_040
+
 #define TT_CTJ TT_000
 
 // Подключаем обработку кастомных кейкодов
@@ -211,7 +213,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXXX, EN_A,    EN_S,    EN_D,    EN_F,    EN_G,    XXXXXXX, 
     SFT_N_O, EN_Z,    EN_X,    EN_C,    EN_V,    EN_B, 
     CTRL_EN, WIN_EN,  ALT_EN,  CMB_LYV, CMB_LYG, 
-    CMB_CTL, /* LEFT RED THUMB KEY */ 
+    CMB_DEL, /* LEFT RED THUMB KEY */ 
     CMB_SFT, CMB_BSP, CMB_ENT, /* LEFT THUMB KEYS */ 
     
     /* RIGHT HALF */ 
@@ -232,7 +234,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXXX, EN_S_A,  EN_S_S,  EN_S_D,  EN_S_F,  EN_S_G,  XXXXXXX, 
     SFT_N_O, EN_S_Z,  EN_S_X,  EN_S_C,  EN_S_V,  EN_S_B, 
     CTRL_EN, WIN_EN,  ALT_EN,  CMB_LYV, CMB_LYG, 
-    CMB_CTL, /* LEFT RED THUMB KEY */ 
+    CMB_DEL, /* LEFT RED THUMB KEY */ 
     CMB_SFT, CMB_BSP, CMB_ENT, /* LEFT THUMB KEYS */ 
     
     /* RIGHT HALF */ 
@@ -253,7 +255,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXXX, RU_F,    RU_Y,    RU_V,    RU_A,    RU_P,    XXXXXXX, 
     SFT_N_O, RU_JA,   RU_CH,   RU_S,    RU_M,    RU_I, 
     CTRL_EN, WIN_EN,  ALT_EN,  CMB_LYV, CMB_LYG, 
-    CMB_CTL, /* LEFT RED THUMB KEY */ 
+    CMB_DEL, /* LEFT RED THUMB KEY */ 
     CMB_SFT, CMB_BSP, CMB_ENT, /* LEFT THUMB KEYS */ 
     
     /* RIGHT HALF */ 
@@ -273,7 +275,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXXX, RU_S_F,  RU_S_Y,  RU_S_V,  RU_S_A,  RU_S_P,  XXXXXXX, 
     SFT_N_O, RU_S_JA, RU_S_CH, RU_S_S,  RU_S_M,  RU_S_I, 
     CTRL_EN, WIN_EN,  ALT_EN,  CMB_LYV, CMB_LYG, 
-    CMB_CTL, /* LEFT RED THUMB KEY */ 
+    CMB_DEL, /* LEFT RED THUMB KEY */ 
     CMB_SFT, CMB_BSP, CMB_ENT, /* LEFT THUMB KEYS */ 
     
     /* RIGHT HALF */ 
@@ -300,7 +302,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // RIGHT HALF
     _______, _______, KC_HOME, _______, KC_END,  _______, _______,
     _______, _______, KC_PGUP, KC_UP,   KC_PGDN, _______, _______,
-    _______, _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
+    _______, _______, KC_LEFT, KC_DOWN, KC_RGHT, KC_RGHT, _______,
              _______, _______, _______, _______, _______, _______,
                       _______, _______, _______, _______, _______,
                       _______, // RIGHT RED THUMB KEY
@@ -381,13 +383,9 @@ const ComboWithKeycode combos[] PROGMEM = {
   IMMEDIATE_CHORD(SFT_N, SFT_N,     /* <-! */ CMB_SFT),
   CHORD(KC_BSPC, /* <- */ CMB_BSP),
   CHORD(KC_ENT,  /* <- */ CMB_ENT),
-  IMMEDIATE_CHORD(CTRL_EN, CTRL_EN, /* <-! */ CMB_CTL),
-  CHORD(CT_A,    /* <- */ CMB_SFT, CMB_CTL),
-  // IMMEDIATE_CHORD(TT_GRAY, TT_UNDO, /* <-! */ CMB_SFT, CMB_BSP),
-  CHORD(KC_DEL,  /* <- */ CMB_BSP, CMB_CTL),
-  CHORD(CT_BSPC, /* <- */ CMB_BSP, CMB_ENT),
-  CHORD(CTSH_EN, /* <- */ CMB_SFT, CMB_BSP, CMB_CTL),
-  CHORD(CT_PSCR,  /* <- */ CMB_BSP, CMB_ENT, CMB_CTL),
+  CHORD(KC_DEL,  /* <- */ CMB_DEL),
+  CHORD(CT_BSPC, /* <- */ SFT_N,   CMB_BSP),
+  CHORD(CT_PSCR, /* <- */ CMB_BSP, CMB_ENT, CMB_CTL),
 
   // Left Left Thumb
   IMMEDIATE_CHORD(TT_VIOL, TT_UNDO, /* <-! */ CMB_LYV),
@@ -396,14 +394,9 @@ const ComboWithKeycode combos[] PROGMEM = {
 
   // Right Thumb
   CHORD(LA_CHNG, /* <- */ CMB_LAN),
-  CHORD(AG_DOT,  /* <- */ CMB_DOT),
   CHORD(KC_SPC,  /* <- */ CMB_SPC),
   CHORD(ALT_EN,  /* <- */ CMB_ALT),
-  CHORD(AG_SDOT, /* <- */ CMB_DOT, CMB_SPC),
   CHORD(LA_SYNC, /* <- */ CMB_LAN, CMB_ENT),
-  CHORD(CTAL_EN, /* <- */ CMB_SPC, CMB_ALT),
-  CHORD(SHAL_EN, /* <- */ CMB_DOT, CMB_ALT),
-  CHORD(WIN_EN,  /* <- */ CMB_SPC, CMB_DOT, CMB_ALT),
   CHORD(WN_L,  /* <- */ CMB_LAN, CMB_ENT, CMB_ALT),
 
   // -------------------------------------------------------------------------
