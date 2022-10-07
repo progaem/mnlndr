@@ -105,7 +105,7 @@ LAYOUT_moonlander( \
 
 #define RGB_LYR TOGGLE_LAYER_COLOR
 
-// Chords
+// Define good names for keys that will be used for chords
 // Left Index
 #define CMB_CTC CMB_000
 #define CMB_CTV CMB_001
@@ -128,10 +128,10 @@ LAYOUT_moonlander( \
 #define CMB_CAV CMB_013
 
 // Russian index keys on letters
-#define CMS_R CMB_014
-#define CMS_SH CMB_015
-#define CMS_S_R CMB_016
-#define CMS_SSH CMB_017
+#define CMS_O   CMB_014
+#define CMS_SF  CMB_015
+#define CMS_S_O CMB_016
+#define CMS_SSF CMB_017
 
 // Left number-row
 #define CMB_PLS CMB_018
@@ -182,175 +182,125 @@ enum Layers {
   L_RED,
   L_GREN,
   L_VIOL,
-  L_GRAY,
-  L_CYAN,
-  L_YELW,
 
-  L_GAME,
-  L_NUCL,
+  L_SPCL,
 };
 
 #define TG_RED TG(L_RED)
 #define TG_GREN TG(L_GREN)
 #define TG_VIOL TG(L_VIOL)
-#define TG_GRAY TG(L_GRAY)
-#define TG_CYAN TG(L_CYAN)
-#define TG_YELW TG(L_YELW)
-#define TG_GAME TG(L_GAME)
-#define TG_NUCL TG(L_NUCL)
+#define TG_SPCL TG(L_SPCL)
 
 #define MO_RED MO(L_RED)
 #define MO_GREN MO(L_GREN)
 #define MO_VIOL MO(L_VIOL)
-#define MO_GRAY MO(L_GRAY)
-#define MO_CYAN MO(L_CYAN)
-#define MO_YELW MO(L_YELW)
-#define MO_GAME MO(L_GAME)
-#define MO_NUCL MO(L_NUCL)
+#define MO_SPCL MO(L_SPCL)
 
 #define TT_RED (TT_000 + L_RED)
 #define TT_GREN (TT_000 + L_GREN)
 #define TT_VIOL (TT_000 + L_VIOL)
-#define TT_GRAY (TT_000 + L_GRAY)
-#define TT_CYAN (TT_000 + L_CYAN)
-#define TT_YELW (TT_000 + L_YELW)
-#define TT_GAME (TT_000 + L_GAME)
-#define TT_NUCL (TT_000 + L_NUCL)
-
-// Этот макрос нужен, чтобы задавать одинаковые слои (в том числе и шифтовый слой) для английского и русского языка. В итоге их отличия будут только в буквах.
-#define LANG_TWO_LAYERS(\
-  L_DEFAULT, L_SHIFT,\
-  \
-  /* Left hand */ \
-       LU1, LU2, LU3, LU4, LU5, \
-       LH1, LH2, LH3, LH4, LH5, \
-  LD0, LD1, LD2, LD3, LD4, LD5, \
-  /* Right hand */ \
-  RU1, RU2, RU3, RU4, RU5, \
-  RH1, RH2, RH3, RH4, RH5, RH6, \
-  RD1, RD2, RD3, RD4, RD5, RD6, \
-  \
-  /* ---------------------------- Shift layer ---------------------------- */ \
-  /* Left hand */ \
-        SLU1, SLU2, SLU3, SLU4, SLU5, \
-        SLH1, SLH2, SLH3, SLH4, SLH5, \
-  SLD0, SLD1, SLD2, SLD3, SLD4, SLD5, \
-  /* Right hand */ \
-  SRU1, SRU2, SRU3, SRU4, SRU5, \
-  SRH1, SRH2, SRH3, SRH4, SRH5, SRH6, \
-  SRD1, SRD2, SRD3, SRD4, SRD5, SRD6 \
-) \
-  /*-------------------------------------------------------------------------*/ \
-  [L_DEFAULT] = MY_layout( \
-    /* LEFT HALF */ \
-    KC_ESC,  CMB_PLS, CMB_SCL, CMB_GRV, CMB_EXL, CMB_ASR, EN_AT, \
-    AG_UNDS, LU1,     LU2,     LU3,     LU4,     LU5,     CMB_CTC, \
-    SFT_N_O, LH1,     LH2,     LH3,     LH4,     LH5,     CMB_CTV, \
-    LD0,     LD1,     LD2,     LD3,     LD4,     LD5, \
-    MU_CTJ,  TT_YELW, CT_SLSH, CMB_LYG, CMB_LYV, \
-    CMB_CTL, /* LEFT RED THUMB KEY */ \
-    CMB_SFT, CMB_BSP, CMB_ENT, /* LEFT THUMB KEYS */ \
-    \
-    /* RIGHT HALF */ \
-    EN_CIRC, CMB_EQL, CMB_CLN, CMB_CMM, CMB_QUE, CMB_SLS, CT_Z, \
-    CT_S,    RU1,     RU2,     RU3,     RU4,     RU5,     AG_MINS, \
-    CT_D,    RH1,     RH2,     RH3,     RH4,     RH5,     RH6, \
-             RD1,     RD2,     RD3,     RD4,     RD5,     RD6, \
-                      TT_RED,  AG_3DOT, KG_NEXT, TT_GAME, TT_NUCL, \
-                      CMB_ALT, /* RIGHT RED THUMB KEY */ \
-                      CMB_LAN, CMB_DOT, CMB_SPC /* RIGHT THUMB KEYS */ \
-  ), \
-  \
-  /*-------------------------------------------------------------------------*/ \
-  [L_SHIFT] = MY_layout( \
-    /* LEFT HALF */ \
-    _______, _______, _______, _______, _______, AG_CMNT, _______, \
-    _______, SLU1,    SLU2,    SLU3,    SLU4,    SLU5,    CMB_CAC, \
-    _______, SLH1,    SLH2,    SLH3,    SLH4,    SLH5,    CMB_CAV, \
-    SLD0,    SLD1,    SLD2,    SLD3,    SLD4,    SLD5, \
-    _______, _______, _______, _______, _______, \
-    _______, /* LEFT RED THUMB KEY */ \
-    _______, _______, _______, /* LEFT THUMB KEYS */ \
-    \
-    /* RIGHT HALF */ \
-    _______, _______, AG2COLN, AG_COMM, _______, AG2SLSH, CT_Y, \
-    _______, SRU1,    SRU2,    SRU3,    SRU4,    SRU5,    _______, \
-    _______, SRH1,    SRH2,    SRH3,    SRH4,    SRH5,    SRH6, \
-             SRD1,    SRD2,    SRD3,    SRD4,    SRD5,    SRD6, \
-                      _______, _______, _______, _______, _______, \
-                      _______, /* RIGHT RED THUMB KEY */ \
-                      _______, _______, _______ /* RIGHT THUMB KEYS */ \
-  ),
+#define TT_SPCL (TT_000 + L_SPCL)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  //---------------------------------------------------------------------------
-  LANG_TWO_LAYERS(
-    L_EN, L_EN_S,
-
-    /* Left hand */
-             AC_GRV,  EN_X,    EN_Y,    EN_P,    EN_S_I,
-             EN_A,    EN_O,    EN_E,    EN_U,    EN_I,
-    XXXXXXX, AC_ACT,  EN_Q,    EN_J,    EN_K,    AC_CIRC,
-
-    /* Right hand */
-    EN_F,    EN_G,    EN_C,    EN_R,    EN_L,
-    EN_D,    EN_H,    EN_T,    EN_N,    EN_S,    XXXXXXX,
-    EN_B,    EN_M,    EN_W,    EN_V,    EN_Z,    AC_TILD,
-
-    /* ---------------------------- Shift layer ---------------------------- */
-    /* Left hand */
-             AC_GRV,  EN_S_X,  EN_S_Y,  EN_S_P,  EN_S_I,
-             EN_S_A,  EN_S_O,  EN_S_E,  EN_S_U,  EN_S_I,
-    _______, AC_ACT,  EN_S_Q,  EN_S_J,  EN_S_K,  AC_CIRC, 
-
-    /* Right hand */
-    EN_S_F,  EN_S_G,  EN_S_C,  EN_S_R,  EN_S_L,
-    EN_S_D,  EN_S_H,  EN_S_T,  EN_S_N,  EN_S_S,  _______,
-    EN_S_B,  EN_S_M,  EN_S_W,  EN_S_V,  EN_S_Z,  _______
+  // English without Shift
+  [L_EN] = MY_layout( 
+    /* LEFT HALF */ 
+    KC_ESC,  AG_1,    AG_2,    AG_3,    AG_4,    AG_5,    EN_GRV, 
+    KC_TAB,  EN_Q,    EN_W,    EN_E,    EN_R,    EN_T,    XXXXXXX, 
+    XXXXXXX, EN_A,    EN_S,    EN_D,    EN_F,    EN_G,    XXXXXXX, 
+    XXXXXXX, EN_Z,    EN_X,    EN_C,    EN_V,    EN_B, 
+    XXXXXXX, TT_YELW, XXXXXXX, CMB_LYG, CMB_LYV, 
+    CMB_CTL, /* LEFT RED THUMB KEY */ 
+    CMB_SFT, CMB_BSP, CMB_ENT, /* LEFT THUMB KEYS */ 
+    
+    /* RIGHT HALF */ 
+    EN_EQL,  AG_6,    AG_7,    AG_8,    AG_9,    AG_0,    EN_MINS, 
+    XXXXXXX, EN_Y,    EN_U,    EN_I,    EN_O,    EN_P,    EN_BSLS, 
+    XXXXXXX, EN_H,    EN_J,    EN_K,    EN_L,    EN_SCLN, EN_QUOT, 
+             EN_N,    EN_M,    EN_COMM, EN_DOT,  EN_SLSH, XXXXXXX, 
+                      TT_RED,  XXXXXXX, XXXXXXX, XXXXXXX, TT_SPCL, 
+                      CMB_ALT, /* RIGHT RED THUMB KEY */ 
+                      CMB_LAN, CMB_DOT, CMB_SPC /* RIGHT THUMB KEYS */ 
   )
 
-  //---------------------------------------------------------------------------
-  LANG_TWO_LAYERS(
-    L_RU, L_RU_S,
+  // English with Shift
+  [L_EN_S] = MY_layout( 
+    /* LEFT HALF */ 
+    KC_ESC,  EN_EXCL, EN_AT,   EN_HASH, EN_DLR,  EN_PERC, EN_TILD, 
+    KC_TAB,  EN_S_Q,  EN_S_W,  EN_S_E,  EN_S_R,  EN_S_T,  XXXXXXX, 
+    XXXXXXX, EN_S_A,  EN_S_S,  EN_S_D,  EN_S_F,  EN_S_G,  XXXXXXX, 
+    XXXXXXX, EN_S_Z,  EN_S_X,  EN_S_C,  EN_S_V,  EN_S_B, 
+    XXXXXXX, TT_YELW, XXXXXXX, CMB_LYG, CMB_LYV, 
+    CMB_CTL, /* LEFT RED THUMB KEY */ 
+    CMB_SFT, CMB_BSP, CMB_ENT, /* LEFT THUMB KEYS */ 
+    
+    /* RIGHT HALF */ 
+    EN_PLUS, EN_CIRC, EN_AMPR, EN_ASTR, EN_LPRN, EN_RPRN, EN_UNDS, 
+    XXXXXXX, EN_S_Y,  EN_S_U,  EN_S_I,  EN_S_O,  EN_S_P,  EN_PIPE, 
+    XXXXXXX, EN_S_H,  EN_S_J,  EN_S_K,  EN_S_L,  EN_COLN, EN_DQUO, 
+             EN_S_N,  EN_S_M,  EN_LT,   EN_GT,   EN_QUES, XXXXXXX, 
+                      TT_RED,  XXXXXXX, XXXXXXX, XXXXXXX, TT_SPCL, 
+                      CMB_ALT, /* RIGHT RED THUMB KEY */ 
+                      CMB_LAN, CMB_DOT, CMB_SPC /* RIGHT THUMB KEYS */ 
+  )
+  
+  // Russian without Shift
+  [L_RU] = MY_layout( 
+    /* LEFT HALF */ 
+    KC_ESC,  AG_1,    AG_2,    AG_3,    AG_4,    AG_5,    RU_JO, 
+    KC_TAB,  RU_J,    RU_TS,   RU_U,    RU_K,    RU_JE,   XXXXXXX, 
+    XXXXXXX, RU_F,    RU_Y,    RU_V,    RU_A,    RU_P,    XXXXXXX, 
+    XXXXXXX, RU_JA,   RU_CH,   RU_S,    RU_M,    RU_I, 
+    XXXXXXX, TT_YELW, XXXXXXX, CMB_LYG, CMB_LYV, 
+    CMB_CTL, /* LEFT RED THUMB KEY */ 
+    CMB_SFT, CMB_BSP, CMB_ENT, /* LEFT THUMB KEYS */ 
+    
+    /* RIGHT HALF */ 
+    RU_EQL,  AG_6,    AG_7,    AG_8,    AG_9,    AG_0,    RU_MINS, 
+    XXXXXXX, RU_N,    RU_G,    RU_SH,   RU_SC,   RU_Z,    RU_H, 
+    XXXXXXX, RU_R,    CMS_O,   RU_L,    RU_D,    RU_ZH,   RU_E, 
+             RU_T,    CMS_SF,  RU_B,    RU_JU,   RU_DOT, XXXXXXX, 
+                      TT_RED,  XXXXXXX, XXXXXXX, XXXXXXX, TT_SPCL, 
+                      CMB_ALT, /* RIGHT RED THUMB KEY */ 
+                      CMB_LAN, CMB_DOT, CMB_SPC /* RIGHT THUMB KEYS */ 
+  )
 
-    /* Left hand */
-             RU_J,    RU_TS,   RU_U,    RU_JE,   RU_F,
-             RU_K,    RU_M,    RU_V,    RU_A,    RU_P,
-    XXXXXXX, RU_JA,   RU_CH,   RU_S,    RU_I,    RU_Y,
-
-    /* Right hand */
-    RU_SC,   RU_Z,    RU_T,    RU_N,    RU_G,
-    CMS_R,   RU_O,    RU_L,    RU_D,    RU_ZH,   RU_E,
-    CMS_SH,  RU_SF,   RU_B,    RU_JU,   RU_H,    RU_JO,
-
-    /* ---------------------------- Shift layer ---------------------------- */
-    /* Left hand */
-             RU_S_J,  RU_S_TS, RU_S_U,  RU_S_JE, RU_S_F,
-             RU_S_K,  RU_S_M,  RU_S_V,  RU_S_A,  RU_S_P,
-    _______, RU_S_JA, RU_S_CH, RU_S_S,  RU_S_I,  RU_S_Y,
-
-    /* Right hand */
-    RU_S_SC, RU_S_Z,  RU_S_T,  RU_S_N,  RU_S_G,
-    CMS_S_R, RU_S_O,  RU_S_L,  RU_S_D,  RU_S_ZH, RU_S_E,
-    CMS_SSH, RU_S_SF, RU_S_B,  RU_S_JU, RU_S_H,  RU_S_JO
+  [L_RU_S] = MY_layout( 
+    /* LEFT HALF */ 
+    KC_ESC,  RU_EXCL, RU_DQUO, RU_NUME, RU_SCLN, RU_PERC, RU_S_JO, 
+    KC_TAB,  RU_S_J,  RU_S_TS, RU_S_U,  RU_S_K,  RU_S_JE, XXXXXXX, 
+    XXXXXXX, RU_S_F,  RU_S_Y,  RU_S_V,  RU_S_A,  RU_S_P,  XXXXXXX, 
+    XXXXXXX, RU_S_JA, RU_S_CH, RU_S_S,  RU_S_M,  RU_S_I, 
+    XXXXXXX, TT_YELW, XXXXXXX, CMB_LYG, CMB_LYV, 
+    CMB_CTL, /* LEFT RED THUMB KEY */ 
+    CMB_SFT, CMB_BSP, CMB_ENT, /* LEFT THUMB KEYS */ 
+    
+    /* RIGHT HALF */ 
+    RU_PLUS, RU_COLN, RU_QUES, RU_ASTR, RU_LPRN, RU_RPRN, RU_UNDS, 
+    XXXXXXX, RU_S_N,  RU_S_G,  RU_S_SH, RU_S_SC, RU_S_Z,  RU_S_H, 
+    XXXXXXX, RU_S_R,  CMS_S_O, RU_S_L,  RU_S_D,  RU_S_ZH, RU_S_E, 
+             RU_S_T,  CMS_SSF, RU_S_B,  RU_S_JU, RU_COMM, XXXXXXX, 
+                      TT_RED,  XXXXXXX, XXXXXXX, XXXXXXX, TT_SPCL, 
+                      CMB_ALT, /* RIGHT RED THUMB KEY */ 
+                      CMB_LAN, CMB_DOT, CMB_SPC /* RIGHT THUMB KEYS */ 
   )
 
   //---------------------------------------------------------------------------
   [L_RED] = MY_layout(
     // LEFT HALF
     TG_RED,  _______, _______, _______, _______, _______, _______,
-    CT_G,    KC_HOME, KC_PGDN, KC_PGUP, KC_END,  CT_J,    _______,
-    CS_M,    KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, CS_K,    _______,
-    _______, CT_LEFT, CT_DOWN, CT_UP,   CT_RGHT, CT_F,
-    _______, _______, _______, _______, TT_CYAN,
+    _______, _______, _______, CMB_LB2, CMB_RB2, _______, _______,
+    _______, CMB_LB4, CMB_RB4, CMB_LB1, CMB_RB1, _______, _______,
+    _______, _______, _______, CMB_LB3, CMB_RB3, _______,
+    _______, _______, _______, _______, _______,
     _______, // LEFT RED THUMB KEY
     _______, _______, _______, // LEFT THUMB KEYS
 
     // RIGHT HALF
-    _______, _______, _______, _______, _______, _______, _______,
-    CT_PLUS, EN_MACR, CMB_LB2, CMB_RB2, EN_ARR2, EN_ARR1, CT_ENT,
-    CT_MINS, KC_TAB,  CMB_LB1, CMB_RB1, CMB_LB4, CMB_RB4, SH_TAB,
-             EN_FISH, CMB_LB3, CMB_RB3, EN_LTEQ, EN_GTEQ, EN_CLTG,
+    _______, _______, _______, KC_HOME, KC_PGUP, _______, _______,
+    _______, _______, _______,  KC_END, KC_PGDN, _______, _______,
+    _______, _______, _______,   KC_UP, _______, _______, _______,
+             _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
                       _______, _______, _______, _______, _______,
                       _______, // RIGHT RED THUMB KEY
                       _______, _______, _______ // RIGHT THUMB KEYS
@@ -359,20 +309,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //---------------------------------------------------------------------------
   [L_GREN] = MY_layout(
     // LEFT HALF
-    TG_GREN, _______, _______, _______, _______,  _______,  _______,
-    KC_MUTE, KC_F5,   CS_T,    CT_T,    CT_W,     F6_CT_C,  _______,
-    KC_VOLU, KC_MPRV, KC_MNXT, CT_PGUP, CT_PGDN,  KC_MPLY,  _______,
-    KC_VOLD, CT_F5,   CS_P,    CT_1,    CT_2,     AL_PSCR,
-    _______, _______, _______, _______, _______,  
+    TG_GREN, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, 
     _______, // LEFT RED THUMB KEY
     _______, _______, _______, // LEFT THUMB KEYS
 
     // RIGHT HALF
-    _______, _______, _______, _______, _______, _______, RESET,
-    _______, _______, KC_F4,   KC_F5,   KC_F6,   KC_F11,  _______,
-    _______, _______, KC_F10,  KC_F1,   KC_F2,   KC_F3,   _______,
-             _______, KC_F9,   KC_F8,   KC_F7,   KC_F12,  _______,
-                      _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, AG_7,    AG_8,    AG_9,    _______, _______,
+    _______, _______, AG_4,    AG_5,    AG_6,    _______, _______,
+             _______, AG_1,    AG_2,    AG_3,    _______, _______,
+                      AG_0, _______, _______, _______, _______,
                       _______, // RIGHT RED THUMB KEY
                       _______, _______, _______ // RIGHT THUMB KEYS
   ),
@@ -381,112 +331,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_VIOL] = MY_layout(
     // LEFT HALF
     TG_VIOL, _______, _______, _______, _______, _______, _______,
-    AL_UP,   WN_8,    WN_7,    WN_6,    WN_5,    _______, _______,
-    WN_Q,    WN_4,    WN_3,    WN_2,    WN_1,    _______, _______,
-    KC_F2,   KC_LGUI, _______, WN_5,    WN_9,    _______,
+    _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______,
     _______, // LEFT RED THUMB KEY
     _______, _______, _______, // LEFT THUMB KEYS
 
     // RIGHT HALF
-    _______, _______, _______, _______, _______, _______, _______,
-    _______, AC_SUB,  AG_4,    AG_5,    AG_6,    _______, _______,
-    _______, AC_SUP,  AG_0,    AG_1,    AG_2,    AG_3,    _______,
-             AC_CRCL, AG_9,    AG_8,    AG_7,    _______, _______,
-                      TT_CYAN, _______, _______, _______, _______,
-                      _______, // RIGHT RED THUMB KEY
-                      _______, _______, _______ // RIGHT THUMB KEYS
-  ),
-
-  //---------------------------------------------------------------------------
-  [L_GRAY] = MY_layout(
-    // LEFT HALF
-    TG_GRAY, _______, _______, _______, _______, _______,  _______,
-    _______, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, _______,  _______,
-    KC_BTN1, RP_001,  RP_003,  RP_002,  RP_004,  KC_BTN2,  _______,
-    _______, RP_005,  RP_007,  RP_006,  RP_008,  KC_BTN3,
-    _______, _______, _______, _______, _______,  
-    _______, // LEFT RED THUMB KEY
-    _______, _______, _______, // LEFT THUMB KEYS
-
-    // RIGHT HALF
-    _______, _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______, _______,
-             _______, _______, _______, _______, _______, _______,
+    _______, _______, KC_F10,  KC_F11,  KC_F12,  _______, _______,
+    _______, _______, KC_F7,   KC_F8,   KC_F9,   _______, _______,
+    _______, _______, KC_F4,   KC_F5,   KC_F6,   _______, _______,
+             _______, KC_F1,   KC_F2,   KC_F3,   _______, _______,
                       _______, _______, _______, _______, _______,
                       _______, // RIGHT RED THUMB KEY
                       _______, _______, _______ // RIGHT THUMB KEYS
   ),
 
   //---------------------------------------------------------------------------
-  [L_CYAN] = MY_layout(
+  [L_SPCL] = MY_layout(
     // LEFT HALF
-    TG_CYAN, _______, _______, _______, _______, _______,  _______,
-    XC_NIN,  XC_IN,   XC_SBST, XC_DEGR, XC_PLMN, XC_MU,    _______,
-    XC_MUSC, XC_LEFT, XC_DOWN, XC_UP,   XC_RGHT, XC_LMBD,  _______,
-    XC_ANGL, XC_IFAI, XC_EXST, XC_ALL,  XC_THEN, XC_PI,
-    _______, _______, _______, _______, _______,  
-    _______, // LEFT RED THUMB KEY
-    _______, _______, _______, // LEFT THUMB KEYS
-
-    // RIGHT HALF
-    _______, _______, _______, _______, _______, _______, _______,
-    _______, XC_CRSS, CMB_LCR, CMB_RCR, XC_APRX, XC_EMPT, XC_TM,
-    _______, XC_DONE, CMB_LTR, CMB_RTR, XC_DASH, XC_TIMS, XC_NEQ,
-             XC_SPRK, XC_TMBU, XC_TMBD, XC_BULL, XC_INF, XC_COPY,
-                      _______, _______, _______, _______, _______,
-                      _______, // RIGHT RED THUMB KEY
-                      _______, _______, _______ // RIGHT THUMB KEYS
-  ),
-  
-  //---------------------------------------------------------------------------
-  [L_YELW] = MY_layout(
-    // LEFT HALF
-    TG_YELW, RGB_HUI, RGB_SAI, RGB_VAI, RGB_SPI, RGB_MOD, RGB_TOG,
-    RGB_PRT, RGB_HUD, RGB_SAD, RGB_VAD, RGB_SPD, RGB_RMOD,RGB_LYR,
-    RGB__0,  RGB__1,  RGB__2,  RGB__25, RGB__28, RGB__36, RGB__27,
-    RGB__7,  RGB__13, RGB__15, RGB__16, RGB__17, _______,
-    _______, _______, AU_TOG,  MU_TOG,  MU_MOD,
-    RGB_PRT, // LEFT RED THUMB KEY
-    PIC_0,   PIC_1,   PIC_2, // LEFT THUMB KEYS
-
-    // RIGHT HALF
-    _______, _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______, _______,
-    _______, LED_1,   LED_2,   LED_3,   LED_4,   LED_5,   LED_6,
-             _______, _______, _______, _______, _______, _______,
-                      _______, _______, _______, _______, _______,
-                      _______, // RIGHT RED THUMB KEY
-                      _______, _______, _______ // RIGHT THUMB KEYS
-  ),
-
-
-  //---------------------------------------------------------------------------
-  [L_GAME] = MY_layout(
-    // LEFT HALF
-    KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,
-    KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_7,
-    KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_8,
-    KC_LCTL, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, CS_M,
-    KC_LGUI, // LEFT RED THUMB KEY
-    KC_SPC,  KC_LALT, KC_ENT, // LEFT THUMB KEYS
-
-    // RIGHT HALF
-    XXXXXXX, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    TG_GAME,
-    XXXXXXX, KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    XXXXXXX,
-    XXXXXXX, KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, XXXXXXX,
-             KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, XXXXXXX,
-                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                      XXXXXXX, // RIGHT RED THUMB KEY
-                      XXXXXXX, XXXXXXX, XXXXXXX // RIGHT THUMB KEYS
-    ),
-
-  //---------------------------------------------------------------------------
-  [L_NUCL] = MY_layout(
-    // LEFT HALF
-    TG_NUCL, KC_SLCK, KC_CAPS, KC_INS,  KC_PAUS, KC_PSCR, KC_APP,
+    TG_SPCL, KC_SLCK, KC_CAPS, KC_INS,  KC_PAUS, KC_PSCR, KC_APP,
     _______, _______, _______, _______, _______, _______, _______,
     _______, MU_LAN1, MU_LAN2, MU_LAN3, MU_LAN4, _______, _______,
     KC_LSFT, _______, _______, _______, _______, _______,
@@ -507,9 +372,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 const ComboWithKeycode combos[] PROGMEM = {
   // Left Index
-  CHORD(CT_C,    /* <- */ CMB_CTC),
-  CHORD(CT_V,    /* <- */ CMB_CTV),
-  CHORD(CT_X,    /* <- */ CMB_CTC, CMB_CTV),
+  // CHORD(CT_C,    /* <- */ CMB_CTC),
+  // CHORD(CT_V,    /* <- */ CMB_CTV),
+  // CHORD(CT_X,    /* <- */ CMB_CTC, CMB_CTV),
 
   // Left Thumb
   IMMEDIATE_CHORD(SFT_N, SFT_N,     /* <-! */ CMB_SFT),
@@ -517,11 +382,11 @@ const ComboWithKeycode combos[] PROGMEM = {
   CHORD(KC_ENT,  /* <- */ CMB_ENT),
   IMMEDIATE_CHORD(CTRL_EN, CTRL_EN, /* <-! */ CMB_CTL),
   CHORD(CT_A,    /* <- */ CMB_SFT, CMB_CTL),
-  IMMEDIATE_CHORD(TT_GRAY, TT_UNDO, /* <-! */ CMB_SFT, CMB_BSP),
+  // IMMEDIATE_CHORD(TT_GRAY, TT_UNDO, /* <-! */ CMB_SFT, CMB_BSP),
   CHORD(KC_DEL,  /* <- */ CMB_BSP, CMB_CTL),
   CHORD(CT_BSPC, /* <- */ CMB_BSP, CMB_ENT),
   CHORD(CTSH_EN, /* <- */ CMB_SFT, CMB_BSP, CMB_CTL),
-  CHORD(MU_SCR,  /* <- */ CMB_BSP, CMB_ENT, CMB_CTL),
+  CHORD(AL_PSCR,  /* <- */ CMB_BSP, CMB_ENT, CMB_CTL),
 
   // Left Left Thumb
   IMMEDIATE_CHORD(TT_VIOL, TT_UNDO, /* <-! */ CMB_LYV),
@@ -544,49 +409,49 @@ const ComboWithKeycode combos[] PROGMEM = {
   // Shifted index keys
 
   // Left Index
-  CHORD(CT_A_C,  /* <- */ CMB_CAC),
-  CHORD(CT_A_V,  /* <- */ CMB_CAV),
-  CHORD(CT_A_X,  /* <- */ CMB_CAC, CMB_CAV),
+  // CHORD(CT_A_C,  /* <- */ CMB_CAC),
+  // CHORD(CT_A_V,  /* <- */ CMB_CAV),
+  // CHORD(CT_A_X,  /* <- */ CMB_CAC, CMB_CAV),
 
   // -------------------------------------------------------------------------
   // Russian combos on letters
-  CHORD(RU_R,    /* <- */ CMS_R),
-  CHORD(RU_SH,   /* <- */ CMS_SH),
-  CHORD(RU_HD,   /* <- */ CMS_R, CMS_SH),
-  CHORD(RU_S_R,  /* <- */ CMS_S_R),
-  CHORD(RU_S_SH, /* <- */ CMS_SSH),
-  CHORD(RU_S_HD, /* <- */ CMS_S_R, CMS_SSH),
+  CHORD(RU_O,    /* <- */ CMS_O),
+  CHORD(RU_SF,   /* <- */ CMS_SF),
+  CHORD(RU_HD,   /* <- */ CMS_O, CMS_SF),
+  CHORD(RU_S_O,  /* <- */ CMS_S_O),
+  CHORD(RU_S_SF, /* <- */ CMS_SSF),
+  CHORD(RU_S_HD, /* <- */ CMS_S_O, CMS_SSF),
 
   // -------------------------------------------------------------------------
   // Number row
 
   // Left hand
-  CHORD(AG_PLUS, /* <- */ CMB_PLS),
-  CHORD(AG_SCLN, /* <- */ CMB_SCL),
-  CHORD(EN_GRV,  /* <- */ CMB_GRV),
-  CHORD(AG_EXCL, /* <- */ CMB_EXL),
-  CHORD(AG_ASTR, /* <- */ CMB_ASR),
-  CHORD(EN_TILD, /* <- */ CMB_PLS, CMB_EXL),
-  CHORD(RU_NUME, /* <- */ CMB_PLS, CMB_ASR),
-  CHORD(EN_QUOT, /* <- */ CMB_GRV, CMB_EXL),
-  CHORD(AG_DQUO, /* <- */ CMB_SCL, CMB_GRV),
-  CHORD(AG_PERC, /* <- */ CMB_SCL, CMB_EXL),
-  CHORD(EN2QUOT, /* <- */ CMB_SCL, CMB_ASR),
-  CHORD(AG2DQUO, /* <- */ CMB_SCL, CMB_GRV, CMB_EXL),
+  // CHORD(AG_PLUS, /* <- */ CMB_PLS),
+  // CHORD(AG_SCLN, /* <- */ CMB_SCL),
+  // CHORD(EN_GRV,  /* <- */ CMB_GRV),
+  // CHORD(AG_EXCL, /* <- */ CMB_EXL),
+  // CHORD(AG_ASTR, /* <- */ CMB_ASR),
+  // CHORD(EN_TILD, /* <- */ CMB_PLS, CMB_EXL),
+  // CHORD(RU_NUME, /* <- */ CMB_PLS, CMB_ASR),
+  // CHORD(EN_QUOT, /* <- */ CMB_GRV, CMB_EXL),
+  // CHORD(AG_DQUO, /* <- */ CMB_SCL, CMB_GRV),
+  // CHORD(AG_PERC, /* <- */ CMB_SCL, CMB_EXL),
+  // CHORD(EN2QUOT, /* <- */ CMB_SCL, CMB_ASR),
+  // CHORD(AG2DQUO, /* <- */ CMB_SCL, CMB_GRV, CMB_EXL),
 
   // Right hand
-  CHORD(AG_SLSH, /* <- */ CMB_SLS),
-  CHORD(AG_QUES, /* <- */ CMB_QUE),
-  CHORD(AG_CMSP, /* <- */ CMB_CMM),
-  CHORD(AG_COLN, /* <- */ CMB_CLN),
-  CHORD(AG_EQL,  /* <- */ CMB_EQL),
-  CHORD(EN_DLR,  /* <- */ CMB_SLS, CMB_CLN),
-  CHORD(EN_HASH, /* <- */ CMB_SLS, CMB_EQL),
-  CHORD(EN_PIPE, /* <- */ CMB_CMM, CMB_CLN),
-  CHORD(EN_AMPR, /* <- */ CMB_QUE, CMB_CMM),
-  CHORD(AG_BSLS, /* <- */ CMB_QUE, CMB_CLN),
-  CHORD(EN2PIPE, /* <- */ CMB_QUE, CMB_EQL),
-  CHORD(EN2AMPR, /* <- */ CMB_QUE, CMB_CMM, CMB_CLN),
+  // CHORD(AG_SLSH, /* <- */ CMB_SLS),
+  // CHORD(AG_QUES, /* <- */ CMB_QUE),
+  // CHORD(AG_CMSP, /* <- */ CMB_CMM),
+  // CHORD(AG_COLN, /* <- */ CMB_CLN),
+  // CHORD(AG_EQL,  /* <- */ CMB_EQL),
+  // CHORD(EN_DLR,  /* <- */ CMB_SLS, CMB_CLN),
+  // CHORD(EN_HASH, /* <- */ CMB_SLS, CMB_EQL),
+  // CHORD(EN_PIPE, /* <- */ CMB_CMM, CMB_CLN),
+  // CHORD(EN_AMPR, /* <- */ CMB_QUE, CMB_CMM),
+  // CHORD(AG_BSLS, /* <- */ CMB_QUE, CMB_CLN),
+  // CHORD(EN2PIPE, /* <- */ CMB_QUE, CMB_EQL),
+  // CHORD(EN2AMPR, /* <- */ CMB_QUE, CMB_CMM, CMB_CLN),
 
   // -------------------------------------------------------------------------
   // Brackets on red layer
@@ -606,26 +471,21 @@ const ComboWithKeycode combos[] PROGMEM = {
   // -------------------------------------------------------------------------
   // Brackets on XCompose layer
 
-  CHORD(XC_LTRE, /* <- */ CMB_LTR),
-  CHORD(XC_RTRE, /* <- */ CMB_RTR),
-  CHORD(XC_BTRE, /* <- */ CMB_LTR, CMB_RTR),
+  // CHORD(XC_LTRE, /* <- */ CMB_LTR),
+  // CHORD(XC_RTRE, /* <- */ CMB_RTR),
+  // CHORD(XC_BTRE, /* <- */ CMB_LTR, CMB_RTR),
 
-  CHORD(XC_LCRN, /* <- */ CMB_LCR),
-  CHORD(XC_RCRN, /* <- */ CMB_RCR),
-  CHORD(XC_BCRN, /* <- */ CMB_LCR, CMB_RCR),
+  // CHORD(XC_LCRN, /* <- */ CMB_LCR),
+  // CHORD(XC_RCRN, /* <- */ CMB_RCR),
+  // CHORD(XC_BCRN, /* <- */ CMB_LCR, CMB_RCR),
 };
 const uint8_t combos_size = sizeof(combos)/sizeof(ComboWithKeycode);
 
 const uint16_t tt_keys[][3] = {
-  { TT_CTJ, CT_J,  CT_BSLS }, // Убийство программы, если нажать три раза, то выдаёт Ctrl+\, что убивает безоговорочно.
   { TT_RED,  MO_RED,  TG_RED },
   { TT_GREN, MO_GREN, TG_GREN },
   { TT_VIOL, MO_VIOL, TG_VIOL },
-  { TT_GRAY, MO_GRAY, TG_GRAY },
-  { TT_CYAN, MO_CYAN, TG_CYAN },
-  { TT_YELW, MO_YELW, TG_YELW },
-  { TT_GAME, MO_GAME, TG_GAME },
-  { TT_NUCL, MO_NUCL, TG_NUCL },
+  { TT_SPCL, MO_SPCL, TG_SPCL },
 };
 const uint8_t tt_size = sizeof(tt_keys)/(sizeof(uint16_t) * 3);
 
@@ -720,13 +580,8 @@ const uint8_t PROGMEM layermap[][3] = {
   [L_RED] = { 0, 255, 210 },
   [L_GREN] = { 76, 255, 255 },
   [L_VIOL] = { 188, 255, 255 },
-  [L_GRAY] = { 0, 0, 128 },
-  [L_CYAN] = { 128, 255, 255 },
 
-  [L_YELW] = { 35, 255, 255 },
-  [L_GAME] = { 228, 255, 255 },
-
-  [L_NUCL] = { 8, 255, 255 },
+  [L_SPCL] = { 8, 255, 255 },
 };
 const uint8_t layermap_size = sizeof(layermap)/(sizeof(uint8_t) * 3);
 
