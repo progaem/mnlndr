@@ -384,7 +384,7 @@ const ComboWithKeycode combos[] PROGMEM = {
   CHORD(KC_BSPC, /* <- */ CMB_BSP),
   CHORD(KC_ENT,  /* <- */ CMB_ENT),
   CHORD(KC_DEL,  /* <- */ CMB_DEL),
-  CHORD(CT_BSPC, /* <- */ SFT_N,   CMB_BSP),
+  CHORD(CT_BSPC, /* <- */ CMB_SFT, CMB_BSP),
   CHORD(CT_PSCR, /* <- */ CMB_BSP, CMB_ENT, CMB_CTL),
 
   // Left Left Thumb
