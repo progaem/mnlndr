@@ -102,6 +102,7 @@ LAYOUT_moonlander( \
 #define CT_PLUS LCTL(KC_EQL)
 #define CT_MINS LCTL(KC_MINS)
 #define CT_BSLS LCTL(KC_BSLS)
+#define CT_PSCR LCTL(KC_PSCR)
 
 #define RGB_LYR TOGGLE_LAYER_COLOR
 
@@ -386,7 +387,7 @@ const ComboWithKeycode combos[] PROGMEM = {
   CHORD(KC_DEL,  /* <- */ CMB_BSP, CMB_CTL),
   CHORD(CT_BSPC, /* <- */ CMB_BSP, CMB_ENT),
   CHORD(CTSH_EN, /* <- */ CMB_SFT, CMB_BSP, CMB_CTL),
-  CHORD(AL_PSCR,  /* <- */ CMB_BSP, CMB_ENT, CMB_CTL),
+  CHORD(CT_PSCR,  /* <- */ CMB_BSP, CMB_ENT, CMB_CTL),
 
   // Left Left Thumb
   IMMEDIATE_CHORD(TT_VIOL, TT_UNDO, /* <-! */ CMB_LYV),
@@ -394,7 +395,7 @@ const ComboWithKeycode combos[] PROGMEM = {
   IMMEDIATE_CHORD(TT_RED,  TT_UNDO, /* <-! */ CMB_LYV, CMB_LYG),
 
   // Right Thumb
-  CHORD(MU_LANG, /* <- */ CMB_LAN),
+  CHORD(LA_CHNG, /* <- */ CMB_LAN),
   CHORD(AG_DOT,  /* <- */ CMB_DOT),
   CHORD(KC_SPC,  /* <- */ CMB_SPC),
   CHORD(ALT_EN,  /* <- */ CMB_ALT),
@@ -403,7 +404,7 @@ const ComboWithKeycode combos[] PROGMEM = {
   CHORD(CTAL_EN, /* <- */ CMB_SPC, CMB_ALT),
   CHORD(SHAL_EN, /* <- */ CMB_DOT, CMB_ALT),
   CHORD(WIN_EN,  /* <- */ CMB_SPC, CMB_DOT, CMB_ALT),
-  CHORD(MU_WNL,  /* <- */ CMB_LAN, CMB_DOT, CMB_ALT),
+  CHORD(WN_L,  /* <- */ CMB_LAN, CMB_DOT, CMB_ALT),
 
   // -------------------------------------------------------------------------
   // Shifted index keys

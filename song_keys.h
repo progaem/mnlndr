@@ -63,13 +63,6 @@ bool process_my_music_keys(uint16_t keycode, keyrecord_t *record) {
     MUSIC_KEYCODE(MU_CTJ, TT_CTJ, my_song3)
     MUSIC_KEYCODE(MU_SCR, MY_SCRN, my_song3)
     MUSIC_KEYCODE(MU_WNL, WN_L, my_song3)
-
-    case TG(4):
-    case TG(5):
-    case TG(6):
-    case TG(7):
-    case TG(8):
-    MUSIC_KEYCODE(TG(9), keycode, my_song6)
   }
 
   return true;
