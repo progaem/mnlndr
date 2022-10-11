@@ -324,7 +324,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, EN_SLSH, _______,
     _______, _______, AG_7,    AG_8,    AG_9,    EN_ASTR, _______,
     _______, AG_0,    AG_4,    AG_5,    AG_6,    EN_MINS, KC_ENT,
-             AG_0,    AG_1,    AG_2,    AG_3,    EN_PLUS, _______,
+             EN_DOT,  AG_1,    AG_2,    AG_3,    EN_PLUS, _______,
                       AG_0, _______, _______, _______, _______,
                       _______, // RIGHT RED THUMB KEY
                       _______, _______, _______ // RIGHT THUMB KEYS
@@ -383,7 +383,6 @@ const ComboWithKeycode combos[] PROGMEM = {
   IMMEDIATE_CHORD(SFT_N, SFT_N,     /* <-! */ CMB_SFT),
   IMMEDIATE_CHORD(KC_LCTL, KC_LCTL,     /* <-! */ CMB_CTL),
   CHORD(KC_BSPC, /* <- */ CMB_BSP),
-  CHORD(KC_ENT,  /* <- */ CMB_ENT),
   CHORD(KC_DEL,  /* <- */ CMB_DEL),
   CHORD(CT_BSPC, /* <- */ CMB_SFT, CMB_BSP),
   CHORD(CT_PSCR, /* <- */ CMB_BSP, CMB_DEL, CMB_CTL),
@@ -396,6 +395,7 @@ const ComboWithKeycode combos[] PROGMEM = {
   // Right Thumb
   CHORD(LA_CHNG, /* <- */ CMB_LAN),
   CHORD(KC_SPC,  /* <- */ CMB_SPC),
+  CHORD(KC_ENT,  /* <- */ CMB_ENT),
   CHORD(ALT_EN,  /* <- */ CMB_ALT),
   CHORD(LA_SYNC, /* <- */ CMB_LAN, CMB_ENT),
   CHORD(WN_L,  /* <- */ CMB_LAN, CMB_ENT, CMB_ALT),
