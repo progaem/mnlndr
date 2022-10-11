@@ -224,7 +224,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              EN_N,    EN_M,    EN_COMM, EN_DOT,  EN_SLSH, XXXXXXX, 
                       CMB_LYR, CMB_LYG, WIN_EN,  XXXXXXX, TT_SPCL, 
                       CMB_ALT, /* RIGHT RED THUMB KEY */ 
-                      CMB_LAN, CMB_ENT, CMB_SPC /* RIGHT THUMB KEYS */ 
+                      CMB_ENT, CMB_LAN, CMB_SPC /* RIGHT THUMB KEYS */ 
   ),
 
   // English with Shift
@@ -245,7 +245,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              EN_S_N,  EN_S_M,  EN_LT,   EN_GT,   EN_QUES, XXXXXXX, 
                       CMB_LYR, CMB_LYG, WIN_EN,  XXXXXXX, TT_SPCL, 
                       CMB_ALT, /* RIGHT RED THUMB KEY */ 
-                      CMB_LAN, CMB_ENT, CMB_SPC /* RIGHT THUMB KEYS */ 
+                      CMB_ENT, CMB_LAN, CMB_SPC /* RIGHT THUMB KEYS */ 
   ),
   
   // Russian without Shift
@@ -266,7 +266,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              RU_T,    CMS_SF,  RU_B,    RU_JU,   RU_DOT,  XXXXXXX, 
                       CMB_LYR, CMB_LYG, WIN_EN,  XXXXXXX, TT_SPCL, 
                       CMB_ALT, /* RIGHT RED THUMB KEY */ 
-                      CMB_LAN, CMB_ENT, CMB_SPC /* RIGHT THUMB KEYS */ 
+                      CMB_ENT, CMB_LAN, CMB_SPC /* RIGHT THUMB KEYS */ 
   ),
 
   [L_RU_S] = MY_layout( 
@@ -286,7 +286,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              RU_S_T,  CMS_SSF, RU_S_B,  RU_S_JU, RU_COMM, XXXXXXX, 
                       CMB_LYR, CMB_LYG, WIN_EN,  XXXXXXX, TT_SPCL, 
                       CMB_ALT, /* RIGHT RED THUMB KEY */ 
-                      CMB_LAN, CMB_ENT, CMB_SPC /* RIGHT THUMB KEYS */ 
+                      CMB_ENT, CMB_LAN, CMB_SPC /* RIGHT THUMB KEYS */ 
   ),
 
   //---------------------------------------------------------------------------
