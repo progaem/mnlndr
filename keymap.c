@@ -219,8 +219,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     
     /* RIGHT HALF */ 
     EN_EQL,  AG_6,    AG_7,    AG_8,    AG_9,    AG_0,    EN_MINS, 
-    XXXXXXX, EN_Y,    EN_U,    EN_I,    EN_O,    EN_P,    EN_BSLS, 
-    XXXXXXX, EN_H,    EN_J,    EN_K,    EN_L,    EN_SCLN, EN_QUOT, 
+    AG_PLUS, EN_Y,    EN_U,    EN_I,    EN_O,    EN_P,    EN_BSLS, 
+    AG_MINS, EN_H,    EN_J,    EN_K,    EN_L,    EN_SCLN, EN_QUOT, 
              EN_N,    EN_M,    EN_COMM, EN_DOT,  EN_SLSH, XXXXXXX, 
                       CMB_LYR, CMB_LYG, WIN_EN,  XXXXXXX, TT_SPCL, 
                       CMB_ALT, /* RIGHT RED THUMB KEY */ 
@@ -240,8 +240,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     
     /* RIGHT HALF */ 
     EN_PLUS, EN_CIRC, EN_AMPR, EN_ASTR, EN_LPRN, EN_RPRN, EN_UNDS, 
-    XXXXXXX, EN_S_Y,  EN_S_U,  EN_S_I,  EN_S_O,  EN_S_P,  EN_PIPE, 
-    XXXXXXX, EN_S_H,  EN_S_J,  EN_S_K,  EN_S_L,  EN_COLN, EN_DQUO, 
+    AG_PLUS, EN_S_Y,  EN_S_U,  EN_S_I,  EN_S_O,  EN_S_P,  EN_PIPE, 
+    AG_MINS, EN_S_H,  EN_S_J,  EN_S_K,  EN_S_L,  EN_COLN, EN_DQUO, 
              EN_S_N,  EN_S_M,  EN_LT,   EN_GT,   EN_QUES, XXXXXXX, 
                       CMB_LYR, CMB_LYG, WIN_EN,  XXXXXXX, TT_SPCL, 
                       CMB_ALT, /* RIGHT RED THUMB KEY */ 
@@ -261,8 +261,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     
     /* RIGHT HALF */ 
     RU_EQL,  AG_6,    AG_7,    AG_8,    AG_9,    AG_0,    RU_MINS, 
-    XXXXXXX, RU_N,    RU_G,    RU_SH,   RU_SC,   RU_Z,    RU_H, 
-    XXXXXXX, RU_R,    CMS_O,   RU_L,    RU_D,    RU_ZH,   RU_E, 
+    AG_PLUS, RU_N,    RU_G,    RU_SH,   RU_SC,   RU_Z,    RU_H, 
+    AG_MINS, RU_R,    CMS_O,   RU_L,    RU_D,    RU_ZH,   RU_E, 
              RU_T,    CMS_SF,  RU_B,    RU_JU,   RU_DOT,  XXXXXXX, 
                       CMB_LYR, CMB_LYG, WIN_EN,  XXXXXXX, TT_SPCL, 
                       CMB_ALT, /* RIGHT RED THUMB KEY */ 
@@ -281,8 +281,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     
     /* RIGHT HALF */ 
     RU_PLUS, RU_COLN, RU_QUES, RU_ASTR, RU_LPRN, RU_RPRN, RU_UNDS, 
-    XXXXXXX, RU_S_N,  RU_S_G,  RU_S_SH, RU_S_SC, RU_S_Z,  RU_S_H, 
-    XXXXXXX, RU_S_R,  CMS_S_O, RU_S_L,  RU_S_D,  RU_S_ZH, RU_S_E, 
+    AG_PLUS, RU_S_N,  RU_S_G,  RU_S_SH, RU_S_SC, RU_S_Z,  RU_S_H, 
+    AG_MINS, RU_S_R,  CMS_S_O, RU_S_L,  RU_S_D,  RU_S_ZH, RU_S_E, 
              RU_S_T,  CMS_SSF, RU_S_B,  RU_S_JU, RU_COMM, XXXXXXX, 
                       CMB_LYR, CMB_LYG, WIN_EN,  XXXXXXX, TT_SPCL, 
                       CMB_ALT, /* RIGHT RED THUMB KEY */ 
