@@ -301,10 +301,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, // LEFT THUMB KEYS
 
     // RIGHT HALF
-    _______, _______, KC_HOME, _______, KC_END,  _______, _______,
-    _______, _______, KC_PGUP, KC_UP,   KC_PGDN, _______, _______,
-    _______, _______, KC_LEFT, KC_DOWN, KC_RGHT, KC_RGHT, _______,
-             _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, KC_HOME, KC_PGUP, KC_PGDN, KC_END,  KC_BSPC,
+    _______, _______, KC_LEFT, KC_UP,   KC_DOWN, KC_RGHT, KC_ENT,
+             _______, CT_LEFT, CT_UP,   CT_DOWN, CT_RGHT, _______,
                       _______, _______, _______, _______, _______,
                       _______, // RIGHT RED THUMB KEY
                       _______, _______, _______ // RIGHT THUMB KEYS
@@ -323,7 +323,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     // RIGHT HALF
     _______, _______, _______, _______, _______, EN_SLSH, _______,
-    _______, _______, AG_7,    AG_8,    AG_9,    EN_ASTR, _______,
+    _______, _______, AG_7,    AG_8,    AG_9,    EN_ASTR, KC_BSPC,
     _______, AG_0,    AG_4,    AG_5,    AG_6,    EN_MINS, KC_ENT,
              EN_DOT,  AG_1,    AG_2,    AG_3,    EN_PLUS, _______,
                       AG_0, _______, _______, _______, _______,
