@@ -209,7 +209,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // English without Shift
   [L_EN] = MY_layout( 
     /* LEFT HALF */ 
-    KC_ESC,  AG_1,    AG_2,    AG_3,    AG_4,    AG_5,    XXXXXXX, 
+    KC_ESC,  AG_EXCL, EN_AT,   EN_HASH, EN_DLR,  AG_PERC, AG_DQUO, 
     KC_TAB,  EN_Q,    EN_W,    EN_E,    EN_R,    EN_T,    CMB_GRV, 
     SFT_N_O, EN_A,    EN_S,    EN_D,    EN_F,    EN_G,    EN_EQL, 
     SFT_N_O, EN_Z,    EN_X,    EN_C,    EN_V,    EN_B, 
@@ -218,7 +218,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     CMB_SFT, CMB_BSP, CMB_CTL, /* LEFT THUMB KEYS */ 
     
     /* RIGHT HALF */ 
-    EN_EQL,  AG_6,    AG_7,    AG_8,    AG_9,    AG_0,    EN_MINS, 
+    AG_SCLN, EN_CIRC, EN_AMPR, AG_ASTR, AG_COLN, AG_QUES, AG_UNDS, 
     AG_PLUS, EN_Y,    EN_U,    EN_I,    EN_O,    EN_P,    EN_BSLS, 
     AG_MINS, EN_H,    EN_J,    EN_K,    EN_L,    EN_SCLN, EN_QUOT, 
              EN_N,    EN_M,    EN_COMM, EN_DOT,  EN_SLSH, XXXXXXX, 
@@ -230,7 +230,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // English with Shift
   [L_EN_S] = MY_layout( 
     /* LEFT HALF */ 
-    KC_ESC,  EN_EXCL, EN_AT,   EN_HASH, EN_DLR,  EN_PERC, EN_TILD, 
+    KC_ESC,  AG_EXCL, EN_AT,   RU_NUME, EN_DLR,  AG_PERC, EN_QUOT, 
     KC_TAB,  EN_S_Q,  EN_S_W,  EN_S_E,  EN_S_R,  EN_S_T,  CMB_GRV, 
     SFT_N_O, EN_S_A,  EN_S_S,  EN_S_D,  EN_S_F,  EN_S_G,  EN_EQL, 
     SFT_N_O, EN_S_Z,  EN_S_X,  EN_S_C,  EN_S_V,  EN_S_B, 
@@ -239,7 +239,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     CMB_SFT, CMB_BSP, CMB_CTL, /* LEFT THUMB KEYS */ 
     
     /* RIGHT HALF */ 
-    EN_PLUS, EN_CIRC, EN_AMPR, EN_ASTR, EN_LPRN, EN_RPRN, EN_UNDS, 
+    EN_TILD, EN_CIRC, EN_AMPR, AG_ASTR, AG_COLN, AG_QUES, AG_UNDS, 
     AG_PLUS, EN_S_Y,  EN_S_U,  EN_S_I,  EN_S_O,  EN_S_P,  EN_PIPE, 
     AG_MINS, EN_S_H,  EN_S_J,  EN_S_K,  EN_S_L,  EN_COLN, EN_DQUO, 
              EN_S_N,  EN_S_M,  EN_LT,   EN_GT,   EN_QUES, XXXXXXX, 
@@ -251,7 +251,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // Russian without Shift
   [L_RU] = MY_layout( 
     /* LEFT HALF */ 
-    KC_ESC,  AG_1,    AG_2,    AG_3,    AG_4,    AG_5,    RU_JO, 
+    KC_ESC,  AG_EXCL, EN_AT,   EN_HASH, EN_DLR,  AG_PERC, AG_DQUO, 
     KC_TAB,  RU_J,    RU_TS,   RU_U,    RU_K,    RU_JE,   CMB_GRV, 
     SFT_N_O, RU_F,    RU_Y,    RU_V,    RU_A,    RU_P,    RU_EQL, 
     SFT_N_O, RU_JA,   RU_CH,   RU_S,    RU_M,    RU_I, 
@@ -260,7 +260,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     CMB_SFT, CMB_BSP, CMB_CTL, /* LEFT THUMB KEYS */ 
     
     /* RIGHT HALF */ 
-    RU_EQL,  AG_6,    AG_7,    AG_8,    AG_9,    AG_0,    RU_MINS, 
+    AG_SCLN, EN_CIRC, EN_AMPR, AG_ASTR, AG_COLN, AG_QUES, AG_UNDS, 
     AG_PLUS, RU_N,    RU_G,    RU_SH,   RU_SC,   RU_Z,    RU_H, 
     AG_MINS, RU_R,    CMS_O,   RU_L,    RU_D,    RU_ZH,   RU_E, 
              RU_T,    CMS_SF,  RU_B,    RU_JU,   RU_DOT,  XXXXXXX, 
@@ -271,7 +271,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L_RU_S] = MY_layout( 
     /* LEFT HALF */ 
-    KC_ESC,  RU_EXCL, RU_DQUO, RU_NUME, RU_SCLN, RU_PERC, RU_S_JO, 
+    KC_ESC,  AG_EXCL, EN_AT,   RU_NUME, EN_DLR,  AG_PERC, EN_QUOT, 
     KC_TAB,  RU_S_J,  RU_S_TS, RU_S_U,  RU_S_K,  RU_S_JE, CMB_GRV, 
     SFT_N_O, RU_S_F,  RU_S_Y,  RU_S_V,  RU_S_A,  RU_S_P,  RU_EQL, 
     SFT_N_O, RU_S_JA, RU_S_CH, RU_S_S,  RU_S_M,  RU_S_I, 
@@ -280,7 +280,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     CMB_SFT, CMB_BSP, CMB_CTL, /* LEFT THUMB KEYS */ 
     
     /* RIGHT HALF */ 
-    RU_PLUS, RU_COLN, RU_QUES, RU_ASTR, RU_LPRN, RU_RPRN, RU_UNDS, 
+    EN_TILD, EN_CIRC, EN_AMPR, AG_ASTR, AG_COLN, AG_QUES, AG_UNDS, 
     AG_PLUS, RU_S_N,  RU_S_G,  RU_S_SH, RU_S_SC, RU_S_Z,  RU_S_H, 
     AG_MINS, RU_S_R,  CMS_S_O, RU_S_L,  RU_S_D,  RU_S_ZH, RU_S_E, 
              RU_S_T,  CMS_SSF, RU_S_B,  RU_S_JU, RU_COMM, XXXXXXX, 
