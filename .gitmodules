@@ -1,6 +1,6 @@
 [submodule "lang_shift"]
 	path = lang_shift
-	url = https://github.com/klavarog/lang_shift
+	url = https://github.com/ilabutin/lang_shift
 [submodule "arbitrary_keycode"]
 	path = arbitrary_keycode
 	url = https://github.com/ilabutin/arbitrary_keycode
