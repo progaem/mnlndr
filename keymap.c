@@ -210,7 +210,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_EN] = MY_layout( 
     /* LEFT HALF */ 
     KC_ESC,  AG_1,    AG_2,    AG_3,    AG_4,    AG_5,    XXXXXXX, 
-    KC_TAB,  EN_Q,    EN_W,    EN_E,    EN_R,    EN_T,    EN_GRV, 
+    KC_TAB,  EN_Q,    EN_W,    EN_E,    EN_R,    EN_T,    CMB_GRV, 
     SFT_N_O, EN_A,    EN_S,    EN_D,    EN_F,    EN_G,    EN_EQL, 
     SFT_N_O, EN_Z,    EN_X,    EN_C,    EN_V,    EN_B, 
     KC_LCTL, KC_LGUI, KC_LALT, CMB_LYV, CMB_LYG, 
@@ -231,7 +231,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_EN_S] = MY_layout( 
     /* LEFT HALF */ 
     KC_ESC,  EN_EXCL, EN_AT,   EN_HASH, EN_DLR,  EN_PERC, EN_TILD, 
-    KC_TAB,  EN_S_Q,  EN_S_W,  EN_S_E,  EN_S_R,  EN_S_T,  EN_GRV, 
+    KC_TAB,  EN_S_Q,  EN_S_W,  EN_S_E,  EN_S_R,  EN_S_T,  CMB_GRV, 
     SFT_N_O, EN_S_A,  EN_S_S,  EN_S_D,  EN_S_F,  EN_S_G,  EN_EQL, 
     SFT_N_O, EN_S_Z,  EN_S_X,  EN_S_C,  EN_S_V,  EN_S_B, 
     KC_LCTL, KC_LGUI, KC_LALT, CMB_LYV, CMB_LYG, 
@@ -252,7 +252,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_RU] = MY_layout( 
     /* LEFT HALF */ 
     KC_ESC,  AG_1,    AG_2,    AG_3,    AG_4,    AG_5,    RU_JO, 
-    KC_TAB,  RU_J,    RU_TS,   RU_U,    RU_K,    RU_JE,   EN_GRV, 
+    KC_TAB,  RU_J,    RU_TS,   RU_U,    RU_K,    RU_JE,   CMB_GRV, 
     SFT_N_O, RU_F,    RU_Y,    RU_V,    RU_A,    RU_P,    RU_EQL, 
     SFT_N_O, RU_JA,   RU_CH,   RU_S,    RU_M,    RU_I, 
     KC_LCTL, KC_LGUI, KC_LALT, CMB_LYV, CMB_LYG, 
@@ -272,7 +272,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_RU_S] = MY_layout( 
     /* LEFT HALF */ 
     KC_ESC,  RU_EXCL, RU_DQUO, RU_NUME, RU_SCLN, RU_PERC, RU_S_JO, 
-    KC_TAB,  RU_S_J,  RU_S_TS, RU_S_U,  RU_S_K,  RU_S_JE, EN_GRV, 
+    KC_TAB,  RU_S_J,  RU_S_TS, RU_S_U,  RU_S_K,  RU_S_JE, CMB_GRV, 
     SFT_N_O, RU_S_F,  RU_S_Y,  RU_S_V,  RU_S_A,  RU_S_P,  RU_EQL, 
     SFT_N_O, RU_S_JA, RU_S_CH, RU_S_S,  RU_S_M,  RU_S_I, 
     KC_LCTL, KC_LGUI, KC_LALT, CMB_LYV, CMB_LYG, 
@@ -426,7 +426,8 @@ const ComboWithKeycode combos[] PROGMEM = {
   // Left hand
   // CHORD(AG_PLUS, /* <- */ CMB_PLS),
   // CHORD(AG_SCLN, /* <- */ CMB_SCL),
-  // CHORD(EN_GRV,  /* <- */ CMB_GRV),
+  CHORD(EN_GRV,  /* <- */ CMB_GRV),
+  CHORD(LCTL(KC_GRV), CMB_GRV, CMB_CTL),
   // CHORD(AG_EXCL, /* <- */ CMB_EXL),
   // CHORD(AG_ASTR, /* <- */ CMB_ASR),
   // CHORD(EN_TILD, /* <- */ CMB_PLS, CMB_EXL),
