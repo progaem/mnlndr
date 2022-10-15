@@ -82,7 +82,7 @@ LAYOUT_moonlander( \
 
 // Right thumb
 #define CMB_LAN CMB_006
-#define CMB_ENT CMB_006
+#define CMB_ENT CMB_007
 #define CMB_SPC CMB_008
 #define CMB_ALT CMB_009
 
