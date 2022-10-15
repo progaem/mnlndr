@@ -65,6 +65,7 @@ LAYOUT_moonlander( \
 #define CT_RGHT LCTL(KC_RGHT)
 #define CT_BSPC LCTL(KC_BSPC)
 #define CT_PSCR LCTL(KC_PSCR)
+#define CT_GRV LCTL(KC_GRV)
 
 #define RGB_LYR TOGGLE_LAYER_COLOR
 
@@ -322,7 +323,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, KC_MNXT, KC_VOLU,
     _______, _______, _______, _______, KC_MSTP, KC_MPLY, KC_MUTE,
              _______, _______, _______, _______, KC_MPRV, KC_VOLD,
-                      _______, _______, _______, _______, _______,
+                      _______, _______, _______, CT_GRV,  _______,
                       _______, // RIGHT RED THUMB KEY
                       _______, _______, _______ // RIGHT THUMB KEYS
   ),
