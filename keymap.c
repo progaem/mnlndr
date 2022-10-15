@@ -376,9 +376,9 @@ const ComboWithKeycode combos[] PROGMEM = {
   
   // -------------------------------------------------------------------------
   // Inner index fingers
-  CHORD(AG_MINS, /* <- */ CMS_MIN),
-  CHORD(AG_PLUS, /* <- */ CMS_PLU),
-  CHORD(AG_UNDS, /* <- */ CMS_MIN, CMS_PLU),  
+  CHORD(AG_MINS, /* <- */ CMB_MIN),
+  CHORD(AG_PLUS, /* <- */ CMB_PLU),
+  CHORD(AG_UNDS, /* <- */ CMB_MIN, CMB_PLU),  
   
   CHORD(EN_GRV,  /* <- */ CMB_GRV),
   CHORD(LCTL(KC_GRV), CMB_GRV, CMB_CTL),
