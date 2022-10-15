@@ -12,6 +12,8 @@ enum songs_keycodes {
   MU_LAN2,
   MU_LAN3,
   MU_LAN4,
+  MU_LAN5,
+  MU_LAN6,
 
   SONGS_NEW_SAFE_RANGE,
   #undef CUSTOM_SAFE_RANGE
@@ -55,8 +57,10 @@ bool process_my_music_keys(uint16_t keycode, keyrecord_t *record) {
     MUSIC_KEYCODE(MU_LANG, LA_CHNG, my_song1)
     MUSIC_KEYCODE(MU_LAN1, LA_CAPS, my_song2)
     MUSIC_KEYCODE(MU_LAN2, LA_ALSH, my_song4)
-    MUSIC_KEYCODE(MU_LAN3, LA_CTSH, my_song5)
-    MUSIC_KEYCODE(MU_LAN4, LA_WISP, my_song6)
+    MUSIC_KEYCODE(MU_LAN3, LA_ALSH, my_song4)
+    MUSIC_KEYCODE(MU_LAN4, LA_CTSH, my_song5)
+    MUSIC_KEYCODE(MU_LAN5, LA_SHCT, my_song5)
+    MUSIC_KEYCODE(MU_LAN6, LA_WISP, my_song6)
   }
 
   return true;

@@ -310,13 +310,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //---------------------------------------------------------------------------
   [L_SPCL] = MY_layout(
     // LEFT HALF
-    TG_SPCL, KC_SLCK, KC_CAPS, KC_INS,  KC_PAUS, KC_PSCR, KC_APP,
+    TG_SPCL, MU_LAN1, MU_LAN2, MU_LAN3, MU_LAN4, MU_LAN5, MU_LAN6,
     _______, _______, _______, _______, _______, _______, _______,
-    _______, MU_LAN1, MU_LAN2, MU_LAN3, MU_LAN4, _______, _______,
-    KC_LSFT, _______, _______, _______, _______, _______,
-    KC_LCTL, KC_LGUI, KC_LALT, KC_RALT, KC_RGUI,
+    _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______,
     _______, // LEFT RED THUMB KEY
-    KC_RCTL, KC_RSFT, _______, // LEFT THUMB KEYS
+    _______, _______, _______, // LEFT THUMB KEYS
 
     // RIGHT HALF
     _______, _______, _______, _______, _______, _______, RESET,
