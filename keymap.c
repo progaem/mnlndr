@@ -63,6 +63,7 @@ LAYOUT_moonlander( \
 #define CT_UP LCTL(KC_UP)
 #define CT_DOWN LCTL(KC_DOWN)
 #define CT_RGHT LCTL(KC_RGHT)
+#define CT_BSPC LCTL(KC_BSPC)
 #define CT_PSCR LCTL(KC_PSCR)
 
 #define RGB_LYR TOGGLE_LAYER_COLOR
@@ -171,7 +172,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     CMB_SFT, CMB_BSP, CMB_CTL, /* LEFT THUMB KEYS */ 
     
     /* RIGHT HALF */ 
-    EN_CIRC, AG_SCLN, EN_AMPR, AG_ASTR, AG_COLN, CMS_QUE, CMB_SLS, 
+    EN_CIRC, AG_SCLN, EN_AMPR, AG_ASTR, AG_COLN, CMB_QUE, CMB_SLS, 
     CMB_PLU, EN_Y,    EN_U,    EN_I,    EN_O,    EN_P,    EN_BSLS, 
     CMB_MIN, EN_H,    EN_J,    EN_K,    EN_L,    EN_SCLN, EN_QUOT, 
              EN_N,    EN_M,    EN_COMM, EN_DOT,  EN_SLSH, XXXXXXX, 
@@ -192,7 +193,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     CMB_SFT, CMB_BSP, CMB_CTL, /* LEFT THUMB KEYS */ 
     
     /* RIGHT HALF */ 
-    EN_TILD, AG_SCLN, EN_AMPR, AG_ASTR, AG_COLN, CMS_QUE, EN_BSLS, 
+    EN_TILD, AG_SCLN, EN_AMPR, AG_ASTR, AG_COLN, CMB_QUE, EN_BSLS, 
     CMB_PLU, EN_S_Y,  EN_S_U,  EN_S_I,  EN_S_O,  EN_S_P,  EN_PIPE, 
     CMB_MIN, EN_S_H,  EN_S_J,  EN_S_K,  EN_S_L,  EN_COLN, EN_DQUO, 
              EN_S_N,  EN_S_M,  EN_LT,   EN_GT,   EN_QUES, XXXXXXX, 
@@ -213,7 +214,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     CMB_SFT, CMB_BSP, CMB_CTL, /* LEFT THUMB KEYS */ 
     
     /* RIGHT HALF */ 
-    EN_CIRC, AG_SCLN, EN_AMPR, AG_ASTR, AG_COLN, CMS_QUE, CMB_SLS, 
+    EN_CIRC, AG_SCLN, EN_AMPR, AG_ASTR, AG_COLN, CMB_QUE, CMB_SLS, 
     CMB_PLU, RU_N,    RU_G,    RU_SH,   RU_SC,   RU_Z,    RU_H, 
     CMB_MIN, RU_R,    CMS_O,   RU_L,    RU_D,    RU_ZH,   RU_E, 
              RU_T,    CMS_SF,  RU_B,    RU_JU,   RU_DOT,  XXXXXXX, 
@@ -233,7 +234,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     CMB_SFT, CMB_BSP, CMB_CTL, /* LEFT THUMB KEYS */ 
     
     /* RIGHT HALF */ 
-    EN_TILD, AG_SCLN, EN_AMPR, AG_ASTR, AG_COLN, CMS_QUE, EN_BSLS, 
+    EN_TILD, AG_SCLN, EN_AMPR, AG_ASTR, AG_COLN, CMB_QUE, EN_BSLS, 
     CMB_PLU, RU_S_N,  RU_S_G,  RU_S_SH, RU_S_SC, RU_S_Z,  RU_S_H, 
     CMB_MIN, RU_S_R,  CMS_S_O, RU_S_L,  RU_S_D,  RU_S_ZH, RU_S_E, 
              RU_S_T,  CMS_SSF, RU_S_B,  RU_S_JU, RU_COMM, XXXXXXX, 
@@ -369,9 +370,9 @@ const ComboWithKeycode combos[] PROGMEM = {
   
   // -------------------------------------------------------------------------
   // Number row
-  CHORD(AG_QUES, /* <- */ CMS_QUE),
-  CHORD(EN_SLSH, /* <- */ CMS_SLS),
-  CHORD(EN_PIPE, /* <- */ CMS_SLS, CMS_QUE),
+  CHORD(AG_QUES, /* <- */ CMB_QUE),
+  CHORD(EN_SLSH, /* <- */ CMB_SLS),
+  CHORD(EN_PIPE, /* <- */ CMB_SLS, CMB_QUE),
   
   // -------------------------------------------------------------------------
   // Inner index fingers
@@ -399,7 +400,7 @@ const ComboWithKeycode combos[] PROGMEM = {
 
   // -------------------------------------------------------------------------
   // Special keys
-  CHORD(CT_PSCR, /* <- */ CMB_PRS),
+  CHORD(CT_PSCR, /* <- */ CMB_PRS)
 };
 const uint8_t combos_size = sizeof(combos)/sizeof(ComboWithKeycode);
 
