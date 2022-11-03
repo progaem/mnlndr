@@ -66,6 +66,11 @@ LAYOUT_moonlander( \
 #define CT_BSPC LCTL(KC_BSPC)
 #define CT_PSCR LCTL(KC_PSCR)
 #define CT_GRV LCTL(KC_GRV)
+#define CT_S_1 LCTL(LSFT(1))
+#define CT_S_2 LCTL(LSFT(2))
+#define CT_S_3 LCTL(LSFT(3))
+#define CT_S_4 LCTL(LSFT(4))
+#define CT_S_5 LCTL(LSFT(5))
 
 #define RGB_LYR TOGGLE_LAYER_COLOR
 
@@ -167,7 +172,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESC,  AG_EXCL, EN_AT,   EN_HASH, EN_DLR,  AG_PERC, AG_DQUO, 
     KC_TAB,  EN_Q,    EN_W,    EN_E,    EN_R,    EN_T,    CMB_GRV, 
     SFT_N_O, EN_A,    EN_S,    EN_D,    EN_F,    EN_G,    EN_EQL, 
-    SFT_N_O, EN_Z,    EN_X,    EN_C,    EN_V,    EN_B, 
+    SFT_N,   EN_Z,    EN_X,    EN_C,    EN_V,    EN_B, 
     KC_LCTL, KC_LGUI, KC_LALT, CMB_LYV, CMB_LYG, 
     CMB_DEL, /* LEFT RED THUMB KEY */ 
     CMB_SFT, CMB_BSP, CMB_CTL, /* LEFT THUMB KEYS */ 
@@ -188,7 +193,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESC,  AG_EXCL, EN_AT,   RU_NUME, EN_DLR,  AG_PERC, EN_QUOT, 
     KC_TAB,  EN_S_Q,  EN_S_W,  EN_S_E,  EN_S_R,  EN_S_T,  CMB_GRV, 
     SFT_N_O, EN_S_A,  EN_S_S,  EN_S_D,  EN_S_F,  EN_S_G,  EN_EQL, 
-    SFT_N_O, EN_S_Z,  EN_S_X,  EN_S_C,  EN_S_V,  EN_S_B, 
+    SFT_N,   EN_S_Z,  EN_S_X,  EN_S_C,  EN_S_V,  EN_S_B, 
     KC_LCTL, KC_LGUI, KC_LALT, CMB_LYV, CMB_LYG, 
     CMB_DEL, /* LEFT RED THUMB KEY */ 
     CMB_SFT, CMB_BSP, CMB_CTL, /* LEFT THUMB KEYS */ 
@@ -209,7 +214,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESC,  AG_EXCL, EN_AT,   EN_HASH, EN_DLR,  AG_PERC, AG_DQUO, 
     KC_TAB,  RU_J,    RU_TS,   RU_U,    RU_K,    CMS_JE,  CMB_GRV, 
     SFT_N_O, RU_F,    RU_Y,    RU_V,    RU_A,    CMS_P,   RU_EQL, 
-    SFT_N_O, RU_JA,   RU_CH,   RU_S,    RU_M,    RU_I, 
+    SFT_N,   RU_JA,   RU_CH,   RU_S,    RU_M,    RU_I, 
     KC_LCTL, KC_LGUI, KC_LALT, CMB_LYV, CMB_LYG, 
     CMB_DEL, /* LEFT RED THUMB KEY */ 
     CMB_SFT, CMB_BSP, CMB_CTL, /* LEFT THUMB KEYS */ 
@@ -229,7 +234,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESC,  AG_EXCL, EN_AT,   RU_NUME, EN_DLR,  AG_PERC, EN_QUOT, 
     KC_TAB,  RU_S_J,  RU_S_TS, RU_S_U,  RU_S_K,  CMS_SJE, CMB_GRV, 
     SFT_N_O, RU_S_F,  RU_S_Y,  RU_S_V,  RU_S_A,  CMS_S_P, RU_EQL, 
-    SFT_N_O, RU_S_JA, RU_S_CH, RU_S_S,  RU_S_M,  RU_S_I, 
+    SFT_N,   RU_S_JA, RU_S_CH, RU_S_S,  RU_S_M,  RU_S_I, 
     KC_LCTL, KC_LGUI, KC_LALT, CMB_LYV, CMB_LYG, 
     CMB_DEL, /* LEFT RED THUMB KEY */ 
     CMB_SFT, CMB_BSP, CMB_CTL, /* LEFT THUMB KEYS */ 
@@ -272,7 +277,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, 
+    _______, _______, _______, KC_SPC,  KC_ENT, 
     _______, // LEFT RED THUMB KEY
     _______, _______, _______, // LEFT THUMB KEYS
 
@@ -323,7 +328,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, KC_MNXT, KC_VOLU,
     _______, _______, _______, _______, KC_MSTP, KC_MPLY, KC_MUTE,
              _______, _______, _______, _______, KC_MPRV, KC_VOLD,
-                      _______, _______, _______, CT_GRV,  _______,
+                      CT_S_5,  CT_S_4,  CT_S_2,  CT_GRV,  _______,
                       _______, // RIGHT RED THUMB KEY
                       _______, _______, _______ // RIGHT THUMB KEYS
   ),
