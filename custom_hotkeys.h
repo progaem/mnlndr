@@ -63,6 +63,7 @@ bool process_my_hotkeys(uint16_t keycode, keyrecord_t *record) {
             unregister_code(KC_LSHIFT);
             unregister_code(KC_LCTRL);
           } break;
+          case LANG_CHANGE_SHIFT_ALT:
           case LANG_CHANGE_ALT_SHIFT:
           case LANG_CHANGE_SHIFT_CTRL:
           case LANG_CHANGE_CTRL_SHIFT: {
