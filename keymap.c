@@ -66,11 +66,13 @@ LAYOUT_moonlander( \
 #define CT_BSPC LCTL(KC_BSPC)
 #define CT_PSCR LCTL(KC_PSCR)
 #define CT_GRV LCTL(KC_GRV)
-#define CT_S_1 LCTL(LSFT(1))
-#define CT_S_2 LCTL(LSFT(2))
-#define CT_S_3 LCTL(LSFT(3))
-#define CT_S_4 LCTL(LSFT(4))
-#define CT_S_5 LCTL(LSFT(5))
+#define CT_S_1 LCTL(S(KC_1))
+#define CT_S_2 LCTL(S(KC_2))
+#define CT_S_3 LCTL(S(KC_3))
+#define CT_S_4 LCTL(S(KC_4))
+#define CT_S_5 LCTL(S(KC_5))
+#define CT_TAB LCTL(KC_TAB)
+#define CT_S_TB LCTL(S(KC_TAB))
 
 #define RGB_LYR TOGGLE_LAYER_COLOR
 
@@ -264,7 +266,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, _______, _______,
     _______, _______, KC_HOME, KC_PGUP, KC_PGDN, KC_END,  KC_BSPC,
     _______, _______, KC_LEFT, KC_UP,   KC_DOWN, KC_RGHT, KC_ENT,
-             _______, CT_LEFT, CT_UP,   CT_DOWN, CT_RGHT, KC_SPC,
+             _______, CT_LEFT, CT_S_TB, CT_TAB,  CT_RGHT, KC_SPC,
                       _______, _______, _______, _______, _______,
                       _______, // RIGHT RED THUMB KEY
                       _______, _______, _______ // RIGHT THUMB KEYS
