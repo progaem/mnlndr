@@ -74,6 +74,9 @@ LAYOUT_moonlander( \
 #define CT_TAB LCTL(KC_TAB)
 #define CT_S_TB LCTL(S(KC_TAB))
 
+// Shift keys
+#define S_TAB S(KC_TAB)
+
 #define RGB_LYR TOGGLE_LAYER_COLOR
 
 // Define good names for keys that will be used for chords
@@ -266,7 +269,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, _______, _______,
     _______, _______, KC_HOME, KC_PGUP, KC_PGDN, KC_END,  KC_BSPC,
     _______, _______, KC_LEFT, KC_UP,   KC_DOWN, KC_RGHT, KC_ENT,
-             _______, CT_LEFT, CT_S_TB, CT_TAB,  CT_RGHT, KC_SPC,
+             _______, CT_LEFT, S_TAB,   KC_TAB,  CT_RGHT, KC_SPC,
                       _______, _______, _______, _______, _______,
                       _______, // RIGHT RED THUMB KEY
                       _______, _______, _______ // RIGHT THUMB KEYS
@@ -288,7 +291,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, AG_7,    AG_8,    AG_9,    EN_ASTR, KC_BSPC,
     _______, AG_0,    AG_4,    AG_5,    AG_6,    EN_MINS, KC_ENT,
              EN_DOT,  AG_1,    AG_2,    AG_3,    EN_PLUS, KC_SPC,
-                      AG_0, _______, _______, _______, _______,
+                      AG_0,    _______, EN_DOT,  _______, _______,
                       _______, // RIGHT RED THUMB KEY
                       _______, _______, _______ // RIGHT THUMB KEYS
   ),
