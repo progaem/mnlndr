@@ -421,7 +421,6 @@ const uint16_t tt_keys[][3] = {
 const uint8_t tt_size = sizeof(tt_keys)/(sizeof(uint16_t) * 3);
 
 const uint16_t repeat_keys[][2] = {
-  { RP_000, AR_L5 },
   { RP_001, MS_LF_1 },
   { RP_002, MS_UP_1 },
   { RP_003, MS_DN_1 },
