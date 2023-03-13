@@ -84,9 +84,9 @@ bool process_my_hotkeys(uint16_t keycode, keyrecord_t *record) {
         }
       } else {
         if (record->event.pressed) {
-          REG(ALT_EN);
+          REG(KC_LALT);
         } else {
-          UNREG(ALT_EN);
+          UNREG(KC_LALT);
         }
       }
       return false;
@@ -111,17 +111,29 @@ bool process_my_hotkeys(uint16_t keycode, keyrecord_t *record) {
     }
   }
   
+  #define CASE_CTRL_OR_COMMAND(CASE, TO_PRESS) \
+    case CASE: {\
+      if (record->event.pressed) { \
+        REG(CTRL_OR_COMMAND); \
+        REG(TO_PRESS); \
+      } else { \
+        UNREG(TO_PRESS); \
+        UNREG(CTRL_OR_COMMAND); \
+      } \
+      return false; \
+    }
+  
   #define CASE_CTRL_OR_OPTION(CASE, TO_PRESS) \
-  case CASE: {\
-    if (record->event.pressed) { \
-      REG(CTRL_OR_OPTION); \
-      REG(TO_PRESS); \
-    } else { \
-      UNREG(TO_PRESS); \
-      UNREG(CTRL_OR_OPTION); \
-    } \
-    return false; \
-  }
+    case CASE: {\
+      if (record->event.pressed) { \
+        REG(CTRL_OR_OPTION); \
+        REG(TO_PRESS); \
+      } else { \
+        UNREG(TO_PRESS); \
+        UNREG(CTRL_OR_OPTION); \
+      } \
+      return false; \
+    }
   
   switch (keycode) {
     CASE_CTRL_OR_COMMAND(CT_ENT, KC_ENT)

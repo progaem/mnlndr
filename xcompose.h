@@ -140,5 +140,12 @@ bool process_my_xcompose(uint16_t keycode, keyrecord_t *record) {
     XC_PROCESS(XC_TMBU, 3, 5) // 👍
     XC_PROCESS(XC_TMBD, 3, 6) // 👎
   }
+  
+  #undef PRESS
+  #undef COMPOSE
+  #undef CASE_PROCESS
+  #undef XC_PROCESS
+  #undef TO_NUM
+  
   return true;
 }
