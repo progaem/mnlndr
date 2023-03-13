@@ -16,6 +16,7 @@ enum custom_hotkeys_keycodes {
   CT_BSPC,
   CT_ENT,
   MY_ALT,
+  MY_CTRL,
 
   CUSTOM_HOTKEYS_NEW_SAFE_RANGE,
   #undef CUSTOM_SAFE_RANGE
@@ -51,7 +52,7 @@ bool process_my_hotkeys(uint16_t keycode, keyrecord_t *record) {
             break;
           }
           case SYSTEM_MACOS: {
-            WITH(SHIFT, { WITH(COMMAND, { PRESS(KC_1); }); });
+            WITH(SHIFT, { WITH(COMMAND, { PRESS(KC_2); }); });
             break;
           }
         }
@@ -88,6 +89,22 @@ bool process_my_hotkeys(uint16_t keycode, keyrecord_t *record) {
           REG(KC_LALT);
         } else {
           UNREG(KC_LALT);
+        }
+      }
+      return false;
+    }
+    case MY_CTRL: {
+      if (system_current == SYSTEM_MACOS) {
+        if (record->event.pressed) {
+          REG(COMMAND);
+        } else {
+          UNREG(COMMAND);
+        }
+      } else {
+        if (record->event.pressed) {
+          REG(KC_LCTL);
+        } else {
+          UNREG(KC_LCTL);
         }
       }
       return false;

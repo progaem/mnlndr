@@ -339,7 +339,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 const ComboWithKeycode combos[] PROGMEM = {
   // Left Thumb
   IMMEDIATE_CHORD(SFT_N, SFT_N,     /* <-! */ CMB_SFT),
-  IMMEDIATE_CHORD(KC_LCTL, KC_LCTL,     /* <-! */ CMB_CTL),
+  IMMEDIATE_CHORD(MY_CTRL, MY_CTRL,     /* <-! */ CMB_CTL),
   CHORD(KC_BSPC, /* <- */ CMB_BSP),
   CHORD(KC_DEL,  /* <- */ CMB_DEL),
   CHORD(CT_BSPC, /* <- */ CMB_SFT, CMB_BSP),
