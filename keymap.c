@@ -408,7 +408,7 @@ const ComboWithKeycode combos[] PROGMEM = {
 
   // -------------------------------------------------------------------------
   // Special keys
-  CHORD(MY_PSCR, /* <- */ CMB_PRS)
+  CHORD(MY_SCRN, /* <- */ CMB_PRS)
 };
 const uint8_t combos_size = sizeof(combos)/sizeof(ComboWithKeycode);
 

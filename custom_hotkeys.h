@@ -14,6 +14,7 @@ enum custom_hotkeys_keycodes {
   CT_LEFT,
   CT_RGHT,
   CT_BSPC,
+  CT_ENT,
   MY_ALT,
 
   CUSTOM_HOTKEYS_NEW_SAFE_RANGE,
