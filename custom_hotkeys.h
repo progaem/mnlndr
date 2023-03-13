@@ -7,17 +7,14 @@
 enum custom_hotkeys_keycodes {
   CUSTOM_HOTKEYS_START = CUSTOM_SAFE_RANGE,
 
-  KG_NEXT,
-  F6_CT_C,
+  MY_HOME,
+  MY_END,
   MY_SCRN,
-  CT_A_C,
-  CT_A_V,
-  CT_A_X,
-  CT_D,
-  CT_SLSH,
-  CT_Y,
-  CT_Z,
-  AR_L5,
+  MY_DEL,
+  CT_LEFT,
+  CT_RGHT,
+  CT_BSPC,
+  MY_ALT,
 
   CUSTOM_HOTKEYS_NEW_SAFE_RANGE,
   #undef CUSTOM_SAFE_RANGE
@@ -26,149 +23,123 @@ enum custom_hotkeys_keycodes {
 
 // Мои языко-символьные клавиши
 bool process_my_hotkeys(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-    case KG_NEXT:
-      if (record->event.pressed) {
-        register_code(KC_TAB);
-        unregister_code(KC_TAB);
-        register_code(KC_TAB);
-        unregister_code(KC_TAB);
-        register_code(KC_LCTRL);
-        register_code(KC_RGHT);
-        unregister_code(KC_RGHT);
-        unregister_code(KC_LCTRL);
-      }    
-      return false;
-      break;
-    case F6_CT_C:
-      if (record->event.pressed) {
-        register_code(KC_F6);
-        unregister_code(KC_F6);
+  #define REG(X) register_code(X);
+  #define UNREG(X) unregister_code(X);
+  #define PRESS(X) REG(X); UNREG(X);
+  #define WITH(X, Y) REG(X); Y; UNREG(X);
+  #define CTRL KC_LCTRL
+  #define ALT KC_LALT
+  #define WIN KC_LGUI
+  #define SHIFT KC_LSHIFT
+  #define OPTION KC_LOPT
+  #define COMMAND KC_LCMD
 
-        register_code(KC_LCTL);
-          register_code(KC_C);
-          unregister_code(KC_C);
-        unregister_code(KC_LCTL);
-      }
-      return false;
-      break;
+  uint16_t CTRL_OR_COMMAND = system_current == SYSTEM_MACOS ? COMMAND : CTRL;
+  uint16_t CTRL_OR_OPTION = system_current == SYSTEM_MACOS ? OPTION : CTRL;  
+  
+  switch (keycode) {
     case MY_SCRN:
       if (record->event.pressed) {
-        switch (lang_current_change) {
-          case LANG_CHANGE_CAPS: {
-            register_code(KC_LCTRL);
-            register_code(KC_LSHIFT);
-            register_code(KC_PSCR);
-            unregister_code(KC_PSCR);
-            unregister_code(KC_LSHIFT);
-            unregister_code(KC_LCTRL);
-          } break;
-          case LANG_CHANGE_SHIFT_ALT:
-          case LANG_CHANGE_ALT_SHIFT:
-          case LANG_CHANGE_SHIFT_CTRL:
-          case LANG_CHANGE_CTRL_SHIFT: {
-            register_code(KC_LGUI);
-              register_code(KC_LSHIFT);
-              register_code(KC_S);
-            unregister_code(KC_S);
-              unregister_code(KC_LSHIFT);
-              unregister_code(KC_LGUI);
-          } break;
-          case LANG_CHANGE_WIN_SPACE: {
-            // No screenshot, maybe it android
-          } break;
-        } 
+        switch (system_current) {
+          case SYSTEM_LINUX: {
+            WITH(CTRL, { WITH(SHIFT, { PRESS(KC_PSCR); }); });
+            break;
+          }
+          case SYSTEM_WINDOWS: {
+            WITH(CTRL, { WITH(SHIFT, { PRESS(KC_PSCR); }); });
+            break;
+          }
+          case SYSTEM_MACOS: {
+            WITH(SHIFT, { WITH(COMMAND, { PRESS(KC_1); }); });
+            break;
+          }
+        }
       }
       return false;
       break;
-    case CT_A_C:
-      if (record->event.pressed) {
-        shift_activate(0);
-        register_code(KC_LCTRL);
-        register_code(KC_A);
-        unregister_code(KC_A);
-        register_code(KC_C);
-        unregister_code(KC_C);
-        unregister_code(KC_LCTRL);
-      }
-      return false;
-    case CT_A_V:
-      if (record->event.pressed) {
-        shift_activate(0);
-        register_code(KC_LCTRL);
-        register_code(KC_A);
-        unregister_code(KC_A);
-        register_code(KC_V);
-        unregister_code(KC_V);
-        unregister_code(KC_LCTRL);
-      }
-      return false;
-    case CT_A_X:
-      if (record->event.pressed) {
-        shift_activate(0);
-        register_code(KC_LCTRL);
-        register_code(KC_A);
-        unregister_code(KC_A);
-        register_code(KC_X);
-        unregister_code(KC_X);
-        unregister_code(KC_LCTRL);
-      }
-      return false;
-    case CT_D:
-      if (record->event.pressed) {
-        lang_activate(0);
-        register_code(KC_LCTRL);
-        register_code(KC_D);
+    case MY_HOME: {
+      if (system_current == SYSTEM_MACOS) {
+        if (record->event.pressed) {
+          REG(COMMAND);
+          REG(KC_LEFT);
+        } else {
+          UNREG(KC_LEFT);
+          UNREG(COMMAND);
+        }
       } else {
-        unregister_code(KC_D);
-        unregister_code(KC_LCTRL);
+        if (record->event.pressed) {
+          REG(KC_HOME);
+        } else {
+          UNREG(KC_HOME);
+        }
       }
       return false;
-    case CT_Y:
-      if (record->event.pressed) {
-        shift_activate(0);
-        register_code(KC_LCTRL);
-        register_code(KC_Y);
+    }
+    case MY_ALT: {
+      if (system_current == SYSTEM_MACOS) {
+        if (record->event.pressed) {
+          REG(COMMAND);
+        } else {
+          UNREG(COMMAND);
+        }
       } else {
-        unregister_code(KC_Y);
-        unregister_code(KC_LCTRL);
+        if (record->event.pressed) {
+          REG(ALT_EN);
+        } else {
+          UNREG(ALT_EN);
+        }
       }
       return false;
-    case CT_Z:
-      if (record->event.pressed) {
-        shift_activate(0);
-        register_code(KC_LCTRL);
-        register_code(KC_Z);
+    }
+    case MY_END: {
+      if (system_current == SYSTEM_MACOS) {
+        if (record->event.pressed) {
+          REG(COMMAND);
+          REG(KC_RGHT);
+        } else {
+          UNREG(KC_RGHT);
+          UNREG(COMMAND);
+        }
       } else {
-        unregister_code(KC_Z);
-        unregister_code(KC_LCTRL);
+        if (record->event.pressed) {
+          REG(KC_END);
+        } else {
+          UNREG(KC_END);
+        }
       }
       return false;
-    case CT_SLSH:
-      if (record->event.pressed) {
-        lang_activate(0);
-        register_code(KC_LCTRL);
-        register_code(KC_SLSH);
-      } else {
-        unregister_code(KC_SLSH);
-        unregister_code(KC_LCTRL);
-      }
-      return false;
-    case AR_L5:
-      if (record->event.pressed) {
-        register_code(KC_LEFT);
-        unregister_code(KC_LEFT);
-        register_code(KC_LEFT);
-        unregister_code(KC_LEFT);
-        register_code(KC_LEFT);
-        unregister_code(KC_LEFT);
-        register_code(KC_LEFT);
-        unregister_code(KC_LEFT);
-        register_code(KC_LEFT);
-        unregister_code(KC_LEFT);
-      }
-      return false;
+    }
+  }
+  
+  #define CASE_CTRL_OR_OPTION(CASE, TO_PRESS) \
+  case CASE: {\
+    if (record->event.pressed) { \
+      REG(CTRL_OR_OPTION); \
+      REG(TO_PRESS); \
+    } else { \
+      UNREG(TO_PRESS); \
+      UNREG(CTRL_OR_OPTION); \
+    } \
+    return false; \
+  }
+  
+  switch (keycode) {
+    CASE_CTRL_OR_COMMAND(CT_ENT, KC_ENT)
+    CASE_CTRL_OR_OPTION(CT_LEFT, KC_LEFT)
+    CASE_CTRL_OR_OPTION(CT_RGHT, KC_RGHT)
+    CASE_CTRL_OR_OPTION(CT_BSPC, KC_BSPC)
   }
 
+  #undef REG
+  #undef UNREG
+  #undef PRESS
+  #undef WITH
+  #undef CTRL
+  #undef ALT
+  #undef WIN
+  #undef SHIFT
+  #undef OPTION
+  #undef COMMAND
+  
   return true;
 }

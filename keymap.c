@@ -5,6 +5,7 @@
 #include "arbitrary_keycode/include.h"
 
 #define CUSTOM_SAFE_RANGE ML_SAFE_RANGE
+#include "system.h"
 #include "lang_shift/include.h"
 #include "combo/include.h"
 #include "color/include.h"
@@ -59,12 +60,8 @@ LAYOUT_moonlander( \
 #define WN_9 LGUI(KC_9)
 
 // Ctrl keys
-#define CT_LEFT LCTL(KC_LEFT)
 #define CT_UP LCTL(KC_UP)
 #define CT_DOWN LCTL(KC_DOWN)
-#define CT_RGHT LCTL(KC_RGHT)
-#define CT_BSPC LCTL(KC_BSPC)
-#define CT_PSCR LCTL(KC_PSCR)
 #define CT_GRV LCTL(KC_GRV)
 #define CT_S_1 LCTL(S(KC_1))
 #define CT_S_2 LCTL(S(KC_2))
@@ -267,7 +264,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     // RIGHT HALF
     _______, _______, _______, _______, _______, _______, _______,
-    _______, _______, KC_HOME, KC_PGUP, KC_PGDN, KC_END,  KC_BSPC,
+    _______, _______, MY_HOME, KC_PGUP, KC_PGDN, MY_END,  KC_BSPC,
     _______, _______, KC_LEFT, KC_UP,   KC_DOWN, KC_RGHT, KC_ENT,
              _______, CT_LEFT, S_TAB,   KC_TAB,  CT_RGHT, KC_SPC,
                       _______, _______, _______, _______, _______,
@@ -321,7 +318,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_SPCL] = MY_layout(
     // LEFT HALF
     TG_SPCL, MU_LAN1, MU_LAN2, MU_LAN3, MU_LAN4, MU_LAN5, MU_LAN6,
-    _______, _______, _______, _______, _______, _______, _______,
+    SYS_PRT, SYS_MAC, SYS_WIN, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______,
@@ -356,7 +353,7 @@ const ComboWithKeycode combos[] PROGMEM = {
   CHORD(LA_CHNG, /* <- */ CMB_LAN),
   CHORD(KC_SPC,  /* <- */ CMB_SPC),
   CHORD(KC_ENT,  /* <- */ CMB_ENT),
-  CHORD(ALT_EN,  /* <- */ CMB_ALT),
+  CHORD(MY_ALT,  /* <- */ CMB_ALT),
   CHORD(LA_SYNC, /* <- */ CMB_LAN, CMB_ENT),
   
   // Right right thumb
@@ -411,7 +408,7 @@ const ComboWithKeycode combos[] PROGMEM = {
 
   // -------------------------------------------------------------------------
   // Special keys
-  CHORD(CT_PSCR, /* <- */ CMB_PRS)
+  CHORD(MY_PSCR, /* <- */ CMB_PRS)
 };
 const uint8_t combos_size = sizeof(combos)/sizeof(ComboWithKeycode);
 
@@ -579,6 +576,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
 
   if (!process_my_hotkeys(keycode, record)) {
+    return false;
+  }
+
+  if (!process_system_keys(keycode, record)) {
     return false;
   }
 
