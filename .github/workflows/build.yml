@@ -42,11 +42,11 @@ jobs:
           make ${{ env.KEYBOARD }}:${{ env.KEYMAP }}
       
           TARGET="$(echo "${{ env.KEYBOARD }}" | sed 's#/#_#g')_${{ env.KEYMAP }}"
-          echo ::set-output name=artifact-name::${TARGET}
+          echo "artifact-name=${TARGET}" >> $GITHUB_OUTPUT
           echo "Artifact-name: ${{ steps.build.outputs.artifact-name }}"
       
       - name: Archive artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: "${{ steps.build.outputs.artifact-name }}"
           path: |
